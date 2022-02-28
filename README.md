@@ -21,15 +21,17 @@ Also provide us with the option to remove the game if don’t want it to be in y
 ### Features
 
 ##### Profile Screen
-	General information about the user.
+General information about the user.
 ##### Search all favourite games
-	Search option provides the user with list of games related to the search. Finding and adding games to your collection couldn't be easier. To lookup a game by title, simply begin typing the name in our search box. We will populate the result list and  allowing you to quickly select the game you are looking for.
+Search option provides the user with list of games related to the search. Finding and adding games to your collection couldn't be easier.
+To lookup a game by title, simply begin typing the name in our search box. We will populate the result list
+and  allowing you to quickly select the game you are looking for.
 ##### Track user Games collection
-	Games that are in the collections can allow the user to add their achievements and stats.
+Games that are in the collections can allow the user to add their achievements and stats.
 ##### Upcoming and Recent release games
-	This tab will display list of all upcoming game releases and recently released games.
+This tab will display list of all upcoming game releases and recently released games.
 ##### Settings
-	Setting have the option to Filter the game search based on countries they have selected. Also have Game price currency conversion. Other menus include share option so that this app can be recommended to another user.  Also includes FAQ in the settings.
+Setting have the option to Filter the game search based on countries they have selected. Also have Game price currency conversion. Other menus include share option so that this app can be recommended to another user.  Also includes FAQ in the settings.
 
 #### Database:
 One table to store all the games in the collections. Second table contains stats of each game in the collections.
