@@ -14,9 +14,9 @@ Also provide us with the option to remove the game if don’t want it to be in y
 ### Screenshots
 
 
-<!--
-![navigation](https://github.com/KrishnanDevika/MyDietBalanceApplication/blob/ReadMe/screenshots/module.PNG)
- -->
+
+![navigation](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemFlow1.PNG)
+![navigation](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemflow2.PNG)
 
 
 
