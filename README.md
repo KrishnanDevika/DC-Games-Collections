@@ -70,7 +70,7 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
 | 		Name      |     Account    |      Email         |
 | ---------------- | ------------- | ------------------ |
 | Devika Krishnan | KrishnanDevika |  w0774427@myscc.ca |
-| Chintan Ramparia |
+| Chintan Kamelesh Ramparia | CRamparia | CR63@myscc.ca
 
 
 
