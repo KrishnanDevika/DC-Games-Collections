@@ -13,9 +13,11 @@ add/edit various stats like score, high score, life, levels, kills etc.,
 Also provide us with the option to remove the game if don’t want it to be in your collection list.
 ### Screenshots
 
+
 <!--
 ![navigation](https://github.com/KrishnanDevika/MyDietBalanceApplication/blob/ReadMe/screenshots/module.PNG)
  -->
+
 
 
 ### Features
