@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
+    app:startDestination="@id/nav_apphome">
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.dcgamescollection.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/nav_apphome"
+        android:name="com.example.dcgamescollection.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home2" />
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.dcgamescollection.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/nav_search"
+        android:name="com.example.dcgamescollection.SearchFragment"
+        android:label="Search Games"
+        tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.dcgamescollection.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_collections"
+        android:name="com.example.dcgamescollection.CollectionsFragment"
+        android:label="My Collections"
+        tools:layout="@layout/fragment_collections" />
+    <fragment
+        android:id="@+id/nav_upcoming"
+        android:name="com.example.dcgamescollection.UpcomingGamesFragment"
+        android:label="Upcoming and Trending Games"
+        tools:layout="@layout/fragment_upcoming_games" />
+    <fragment
+        android:id="@+id/nav_tips"
+        android:name="com.example.dcgamescollection.TipsFragment"
+        android:label="Gaming Guides"
+        tools:layout="@layout/fragment_tips" />
 </navigation>
