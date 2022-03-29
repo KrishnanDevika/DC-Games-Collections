@@ -2,11 +2,32 @@ package com.example.dcgamescollection;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.dcgamescollection.Api.GameSingleton;
+import com.example.dcgamescollection.Pojo.Games;
+import com.example.dcgamescollection.RecyclerView.CustomSearchAdapterView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +40,11 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private SearchView searchView;
+    private RecyclerView gameRecyclerView;
+    private CustomSearchAdapterView adapterView;
+    private ArrayList<Games> gamesList;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,7 +85,67 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
          View view = inflater.inflate(R.layout.fragment_search, container, false);
+         searchView = view.findViewById(R.id.gameSearch);
+         gameRecyclerView = view.findViewById(R.id.GamesList);
+         gamesList = new ArrayList<>();
+
+         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+             @Override
+             public boolean onQueryTextSubmit(String query) {
+                 Log.d("ResultSearch", query);
+                 getData(query);
+                 return false;
+             }
+
+             @Override
+             public boolean onQueryTextChange(String newText) {
+                 return false;
+             }
+
+         });
         return view;
     }
+
+   private void getData(String searchValue){
+       Games game = new Games();
+       String API_KEY = "";
+       searchValue  = searchValue.replace(" ", "%20");
+       String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&search="+searchValue);
+
+       Log.d("ResultSearch", url);
+       JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+           @Override
+           public void onResponse(JSONObject response) {
+               try {
+                   JSONArray jsonArray = response.getJSONArray("results");
+                   for (int i = 0; i < jsonArray.length(); i++) {
+                       JSONObject results = jsonArray.getJSONObject(i);
+                       game.setName(results.getString("name"));
+                       game.setRating(results.getDouble("rating"));
+                       game.setReleaseDate(results.getString("released"));
+                       game.setGameIcon(results.getString("background_image"));
+                       gamesList.add(game);
+                       Log.d("Game Name" , game.getName());
+                       Log.d("Game Release" , game.getReleaseDate());
+                       Log.d("Game rating" , String.valueOf(game.getRating()));
+                       Log.d("Game icon" , game.getGameIcon());
+                   }
+
+
+                   } catch (JSONException e) {
+                   e.printStackTrace();
+               }
+
+           }
+       }, new Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+               Log.d("VOLLEY_ERROR", error.getLocalizedMessage());
+           }
+       });
+
+       GameSingleton.getInstance(getContext()).getRequestQueue().add(objectRequest);
+   }
 }

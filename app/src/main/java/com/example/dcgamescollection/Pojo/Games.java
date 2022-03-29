@@ -9,11 +9,14 @@ public class Games {
 
     private String name;
     private String releaseDate;
-    private int gameIcon;
+    private String gameIcon;
     private double rating;
 
+    public Games() {
+    }
+
     //Constructor
-    public Games(String name, String releaseDate, int gameIcon, double rating) {
+    public Games(String name, String releaseDate, String gameIcon, double rating) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.gameIcon = gameIcon;
@@ -36,11 +39,11 @@ public class Games {
         this.releaseDate = releaseDate;
     }
 
-    public int getGameIcon() {
+    public String getGameIcon() {
         return gameIcon;
     }
 
-    public void setGameIcon(int gameIcon) {
+    public void setGameIcon(String gameIcon) {
         this.gameIcon = gameIcon;
     }
 
