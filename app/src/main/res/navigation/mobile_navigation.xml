@@ -8,7 +8,7 @@
         android:id="@+id/nav_apphome"
         android:name="com.example.dcgamescollection.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home2" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_search"
         android:name="com.example.dcgamescollection.SearchFragment"
