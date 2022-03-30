@@ -1,5 +1,7 @@
 package com.example.dcgamescollection.recyclerview;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,11 +15,12 @@ import com.example.dcgamescollection.R;
 
 public class UpcomingGamesAdapter extends RecyclerView.Adapter<UpcomingGamesAdapter.CustomHolder>{
 
+    private Context context;
 
     @NonNull
     @Override
     public UpcomingGamesAdapter.CustomHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_game_item, parent, false);
     }
 
     @Override
