@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -95,12 +96,15 @@ public class SearchFragment extends Fragment {
              @Override
              public boolean onQueryTextSubmit(String query) {
                  Log.d("ResultSearch", query);
+                 searchView.clearFocus();
                  getData(query);
                  return false;
              }
 
              @Override
              public boolean onQueryTextChange(String newText) {
+                 gameRecyclerView.setAdapter(null);
+                 gamesList.clear();
                  return false;
              }
 
@@ -126,14 +130,11 @@ public class SearchFragment extends Fragment {
                        game.setRating(results.getDouble("rating"));
                        game.setReleaseDate(results.getString("released"));
                        game.setGameIcon(results.getString("background_image"));
-                       gamesList.add(game);
-                       Log.d("Game Name" , game.getName());
-                       Log.d("Game Release" , game.getReleaseDate());
-                       Log.d("Game rating" , String.valueOf(game.getRating()));
-                       Log.d("Game icon" , game.getGameIcon());
+                       gamesList.add(new Games(results.getString("name"), results.getString("released"),results.getString("background_image"), results.getDouble("rating")));
+                       adapterView = new CustomSearchAdapterView(gamesList, getContext());
+                       gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                       gameRecyclerView.setAdapter(adapterView);
                    }
-
-
                    } catch (JSONException e) {
                    e.printStackTrace();
                }

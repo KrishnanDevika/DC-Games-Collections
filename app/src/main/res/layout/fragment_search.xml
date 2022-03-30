@@ -11,14 +11,16 @@
         android:id="@+id/gameSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:queryHint="Enter game name"
         android:padding="10dp"
+        android:background="@drawable/text_bg_corner"
         app:iconifiedByDefault="false"
         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/GamesList"/>
 
 
