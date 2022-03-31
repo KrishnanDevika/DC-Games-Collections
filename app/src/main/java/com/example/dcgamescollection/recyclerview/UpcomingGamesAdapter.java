@@ -21,6 +21,7 @@ public class UpcomingGamesAdapter extends RecyclerView.Adapter<UpcomingGamesAdap
     @Override
     public UpcomingGamesAdapter.CustomHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_game_item, parent, false);
+        return new CustomHolder(view);
     }
 
     @Override
@@ -41,7 +42,6 @@ public class UpcomingGamesAdapter extends RecyclerView.Adapter<UpcomingGamesAdap
         protected TextView rating;
         protected Button moreButton;
         protected Button saveButton;
-
 
         public CustomHolder(@NonNull View itemView) {
             super(itemView);
