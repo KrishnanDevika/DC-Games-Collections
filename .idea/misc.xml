@@ -3,18 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-        <entry key="app/src/main/res/drawable/ic_app_launcher_foreground.xml" value="0.16574074074074074" />
-        <entry key="app/src/main/res/drawable/text_bg_corner.xml" value="0.17592592592592593" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19293478260869565" />
-=======
         <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/content_main.xml" value="0.1265625" />
         <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_collections.xml" value="0.1265625" />
         <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_search.xml" value="0.1265625" />
         <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_tips.xml" value="0.1265625" />
         <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_upcoming_games.xml" value="0.1265625" />
+        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/nav_header_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/search_game_item.xml" value="0.22382671480144403" />
->>>>>>> development
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1503623188405797" />
       </map>
     </option>

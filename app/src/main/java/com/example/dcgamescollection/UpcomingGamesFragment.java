@@ -2,15 +2,33 @@ package com.example.dcgamescollection;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.dcgamescollection.recyclerview.UpcomingGamesAdapter;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.dcgamescollection.Api.GameSingleton;
+import com.example.dcgamescollection.Pojo.Games;
+import com.example.dcgamescollection.RecyclerView.CustomSearchAdapterView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +41,9 @@ public class UpcomingGamesFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private RecyclerView gameRecyclerView;
+    private CustomSearchAdapterView adapterView;
+    private ArrayList<Games> gamesList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -63,10 +84,56 @@ public class UpcomingGamesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_upcoming_games, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.upcomingList);
-        UpcomingGamesAdapter adapter = new UpcomingGamesAdapter(/*Data goes here*/ , getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        gameRecyclerView = view.findViewById(R.id.upcomingList);
+        getData();
         return view;
+    }
+
+    private void getData(){
+        Games game = new Games();
+        String API_KEY = "";
+        //https://api.rawg.io/api/games?key=&date=2010-01-01
+        Calendar calendar = Calendar.getInstance();
+        //Formats date objects into strings (ex. 2022-04-01)
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-dd-MM");
+        //Adds 1 to today's calender date (ie. tomorrow's date).
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        String tomorrow = dateFormat.format(calendar.getTime());
+        //Adds 7 to today's calender date (ie. next week's date).
+        calendar.add(Calendar.DAY_OF_YEAR, 6);
+        String nextWeek = dateFormat.format(calendar.getTime());
+
+        String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&date"+tomorrow+","+nextWeek);
+
+        Log.d("ResultSearch", url);
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("results");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject results = jsonArray.getJSONObject(i);
+                        game.setName(results.getString("name"));
+                        game.setRating(results.getDouble("rating"));
+                        game.setReleaseDate(results.getString("released"));
+                        game.setGameIcon(results.getString("background_image"));
+                        gamesList.add(new Games(results.getString("name"), results.getString("released"),results.getString("background_image"), results.getDouble("rating")));
+                        adapterView = new CustomSearchAdapterView(gamesList, getContext());
+                        gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        gameRecyclerView.setAdapter(adapterView);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("VOLLEY_ERROR", error.getLocalizedMessage());
+            }
+        });
+
+        GameSingleton.getInstance(getContext()).getRequestQueue().add(objectRequest);
     }
 }
