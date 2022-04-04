@@ -48,7 +48,7 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
     public void onBindViewHolder(@NonNull GameViewHolder holder, int position) {
         Games games = gamesList.get(position);
         holder.gameName.setText(games.getName());
-        holder.gameRating.setText("Rating: "+String.valueOf(games.getRating()));
+        holder.gameRating.setText(String.valueOf(games.getRating()));
         holder.gameReleaseDate.setText(games.getReleaseDate());
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -15,7 +16,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
             android:background="@color/Background2">
 
             <LinearLayout
@@ -23,7 +23,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/gameLabel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,32 +35,32 @@
                     android:adjustViewBounds="true"
                     app:srcCompat="@mipmap/ic_app_launcher" />
 
-                <TextView
-                    android:id="@+id/ratingLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:padding="5dp"
-                    android:layout_gravity="end"
-                    android:background="@color/white"
-                    android:text="4.48"
-                    android:textColor="@color/design_default_color_error"
-                    android:textSize="20sp" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/gameLabel"
+                android:id="@+id/ratingLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/text_bg_corner"
-                android:text="Game Name"
+                android:layout_gravity="end"
+                android:background="@color/ratingsBackground"
+                android:padding="5dp"
+                android:text="4.48"
+                android:textColor="@color/TextColor"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imagelayout"
+                app:layout_constraintEnd_toEndOf="@+id/imagelayout" />
+
+            <TextView
+                android:id="@+id/gameLabel"
+                android:layout_width="400dp"
+                android:layout_height="51dp"
+                android:background="@color/NameBackground"
                 android:padding="10dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
+                android:text="Game Name"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imagelayout" />
@@ -70,11 +69,12 @@
                 android:id="@+id/infoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:text="more"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/saveButton"
                 app:layout_constraintStart_toEndOf="@+id/dateLabel"
-                app:layout_constraintTop_toBottomOf="@+id/gameLabel"/>
+                app:layout_constraintTop_toBottomOf="@+id/gameLabel" />
 
             <Button
                 android:id="@+id/saveButton"
@@ -86,7 +86,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
 
-         <!--   <androidx.viewpager2.widget.ViewPager2
+            <!--   <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/imageViewPager"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
