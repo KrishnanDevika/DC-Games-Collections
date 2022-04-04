@@ -85,6 +85,7 @@ public class UpcomingGamesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_upcoming_games, container, false);
         gameRecyclerView = view.findViewById(R.id.upcomingList);
+        gamesList = new ArrayList<>();
         getData();
         return view;
     }
@@ -92,18 +93,18 @@ public class UpcomingGamesFragment extends Fragment {
     private void getData(){
         Games game = new Games();
         String API_KEY = "";
-        //https://api.rawg.io/api/games?key=&date=2010-01-01
+        //https://api.rawg.io/api/games?key=API_KEY&dates=2010-01-01
         Calendar calendar = Calendar.getInstance();
-        //Formats date objects into strings (ex. 2022-04-01)
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-dd-MM");
+        //Formats date objects into strings (ex. 2022-04-01 is April 1st, 2022)
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         //Adds 1 to today's calender date (ie. tomorrow's date).
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         String tomorrow = dateFormat.format(calendar.getTime());
         //Adds 7 to today's calender date (ie. next week's date).
-        calendar.add(Calendar.DAY_OF_YEAR, 6);
+        calendar.add(Calendar.DAY_OF_YEAR, 7);
         String nextWeek = dateFormat.format(calendar.getTime());
 
-        String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&date"+tomorrow+","+nextWeek);
+        String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&dates="+tomorrow+","+nextWeek);
 
         Log.d("ResultSearch", url);
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
