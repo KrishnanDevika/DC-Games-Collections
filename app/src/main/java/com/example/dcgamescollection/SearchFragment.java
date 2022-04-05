@@ -41,6 +41,8 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static final String ACTION_TYPE = "action_type";
+    public static final String ADD_TO_COLLECTION = "save";
     private SearchView searchView;
     private RecyclerView gameRecyclerView;
     private CustomSearchAdapterView adapterView;
@@ -114,7 +116,7 @@ public class SearchFragment extends Fragment {
 
    private void getData(String searchValue){
        Games game = new Games();
-       String API_KEY = "";
+       String API_KEY = "1e670774e0cc43a993b99c3b3a56913e";
        searchValue  = searchValue.replace(" ", "%20");
        String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&search="+searchValue);
 
@@ -131,7 +133,9 @@ public class SearchFragment extends Fragment {
                        game.setReleaseDate(results.getString("released"));
                        game.setGameIcon(results.getString("background_image"));
                        gamesList.add(new Games(results.getString("name"), results.getString("released"),results.getString("background_image"), results.getDouble("rating")));
-                       adapterView = new CustomSearchAdapterView(gamesList, getContext());
+                       Bundle extra = new Bundle();
+                       extra.putString(ACTION_TYPE, ADD_TO_COLLECTION);
+                       adapterView = new CustomSearchAdapterView(gamesList, getContext(), extra);
                        gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                        gameRecyclerView.setAdapter(adapterView);
                    }
