@@ -39,6 +39,8 @@ public class UpcomingGamesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    public static final String ADD_TO_CALENDAR = "add";
+    public static final String ACTION_TYPE = "action_type";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView gameRecyclerView;
@@ -119,7 +121,9 @@ public class UpcomingGamesFragment extends Fragment {
                         game.setReleaseDate(results.getString("released"));
                         game.setGameIcon(results.getString("background_image"));
                         gamesList.add(new Games(results.getString("name"), results.getString("released"),results.getString("background_image"), results.getDouble("rating")));
-                        adapterView = new CustomSearchAdapterView(gamesList, getContext());
+                        Bundle extra = new Bundle();
+                        extra.putString(ACTION_TYPE, ADD_TO_CALENDAR);
+                        adapterView = new CustomSearchAdapterView(gamesList, getContext(), extra);
                         gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         gameRecyclerView.setAdapter(adapterView);
                     }
