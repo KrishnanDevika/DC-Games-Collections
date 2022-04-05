@@ -94,7 +94,7 @@ public class UpcomingGamesFragment extends Fragment {
 
     private void getData(){
         Games game = new Games();
-        String API_KEY = "1e670774e0cc43a993b99c3b3a56913e";
+        String API_KEY = "";
         //https://api.rawg.io/api/games?key=API_KEY&dates=2010-01-01
         Calendar calendar = Calendar.getInstance();
         //Formats date objects into strings (ex. 2022-04-01 is April 1st, 2022)
