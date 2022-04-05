@@ -2,7 +2,6 @@ package com.example.dcgamescollection;
 
 import android.os.Bundle;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.dcgamescollection.Api.GameSingleton;
 import com.example.dcgamescollection.Pojo.Games;
@@ -28,7 +26,6 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,7 +89,7 @@ public class UpcomingGamesFragment extends Fragment {
 
     private void getData(){
         Games game = new Games();
-        String API_KEY = "";
+        String API_KEY = Const.API_KEY;
         //https://api.rawg.io/api/games?key=API_KEY&dates=2010-01-01
         Calendar calendar = Calendar.getInstance();
         //Formats date objects into strings (ex. 2022-04-01 is April 1st, 2022)

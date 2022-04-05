@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="app/src/main/res/drawable/ic_app_launcher_foreground.xml" value="0.16574074074074074" />
+        <entry key="app/src/main/res/drawable/newappicon_background.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.3260416666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.392491642116008" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.24365942028985507" />
         <entry key="app/src/main/res/layout/collection_item.xml" value="0.24365942028985507" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1503623188405797" />
@@ -16,27 +16,18 @@
         <entry key="app/src/main/res/layout/fragment_home2.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.262844412215791" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.17798913043478262" />
+        <entry key="app/src/main/res/layout/fragment_tips.xml" value="0.23369565217391305" />
+        <entry key="app/src/main/res/layout/fragment_upcoming_games.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/search_game_item.xml" value="0.335" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/menu/main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_app_launcher.xml" value="0.16574074074074074" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_app_launcher_round.xml" value="0.16574074074074074" />
-=======
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/content_main.xml" value="0.1265625" />
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_collections.xml" value="0.1265625" />
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_search.xml" value="0.1265625" />
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_tips.xml" value="0.1265625" />
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/fragment_upcoming_games.xml" value="0.1265625" />
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/nav_header_main.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Owner/Desktop/College Folder/405 Android Development 3/DC-Games-Collections/DC-Games-Collections/app/src/main/res/layout/search_game_item.xml" value="0.22382671480144403" />
-        <entry key="app/src/main/res/layout/content_main.xml" value="0.1503623188405797" />
->>>>>>> Development
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
