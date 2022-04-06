@@ -19,7 +19,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.dcgamescollection.Api.GameSingleton;
 import com.example.dcgamescollection.Pojo.Games;
-import com.example.dcgamescollection.RecyclerView.CustomSearchAdapterView;
+import com.example.dcgamescollection.SearchRecyclerView.CustomSearchAdapterView;
 
 import org.json.JSONArray;
 import org.json.JSONException;

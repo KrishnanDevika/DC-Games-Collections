@@ -1,31 +1,35 @@
-package com.example.dcgamescollection;
+package com.example.dcgamescollection.ImageViewPager;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.example.dcgamescollection.R;
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CollectionsFragment#newInstance} factory method to
+ * Use the {@link ImageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CollectionsFragment extends Fragment {
+public class ImageFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String  mParam1;
 
-    public CollectionsFragment() {
+
+    public ImageFragment() {
         // Required empty public constructor
     }
 
@@ -34,15 +38,13 @@ public class CollectionsFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CollectionsFragment.
+     * @return A new instance of fragment ImageFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CollectionsFragment newInstance(String param1, String param2) {
-        CollectionsFragment fragment = new CollectionsFragment();
+    public static ImageFragment newInstance(String param1) {
+        ImageFragment fragment = new ImageFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,26 +54,18 @@ public class CollectionsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
-    /**
-     *
-     * @Author: Chintan Ramparia
-     * @Date: March 30th 2022
-     *
-     * @Content: Linking Adapter & Holders to Fragments.
-     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_collections, container, false);
-
-        RecyclerView recyclerView = view.findViewById(R.id.collectionList);
-
-
+        View view = inflater.inflate(R.layout.fragment_image, container, false);
+        ImageView image = view.findViewById(R.id.image);
+        if(mParam1 != null){
+            Picasso.with(getContext()).load(mParam1).into(image);
+        }
         return view;
     }
 }

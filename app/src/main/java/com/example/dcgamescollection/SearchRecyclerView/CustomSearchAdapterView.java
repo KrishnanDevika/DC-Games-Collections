@@ -1,8 +1,6 @@
-package com.example.dcgamescollection.RecyclerView;
+package com.example.dcgamescollection.SearchRecyclerView;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,9 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.dcgamescollection.MoreInfoFragment;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.R;
 import com.squareup.picasso.Picasso;
@@ -70,12 +69,22 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
             });
         }
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
+
+        holder.more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle extra = new Bundle();
+                extra.putParcelable(MoreInfoFragment.GAMES,
+                        gamesList.get(holder.getAdapterPosition()));
+                Navigation.findNavController(view).navigate(R.id.moreInfoFragment, extra);
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         if(gamesList != null){
-            Log.d("GameSearch", String.valueOf(gamesList.size()));
             return  gamesList.size();
         }
         return 0;
@@ -86,7 +95,6 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         protected TextView gameName;
         protected TextView gameRating;
         protected TextView gameReleaseDate;
-        //protected ViewPager2 gameImage;
         protected ImageView gameImage;
         protected Button save;
         protected Button more;
