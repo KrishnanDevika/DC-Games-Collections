@@ -29,4 +29,9 @@
         android:name="com.example.dcgamescollection.TipsFragment"
         android:label="Gaming Guides"
         tools:layout="@layout/fragment_tips" />
+    <fragment
+        android:id="@+id/moreInfoFragment"
+        android:name="com.example.dcgamescollection.MoreInfoFragment"
+        android:label="More Information"
+        tools:layout="@layout/fragment_more_info" />
 </navigation>
