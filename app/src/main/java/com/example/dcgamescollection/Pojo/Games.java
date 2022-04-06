@@ -71,12 +71,12 @@ public class Games  implements Parcelable {
      * @param gameIcon
      * @param rating
      */
-    public Games( int id, String name, String releaseDate, String gameIcon, double rating) {
+    public Games( int id, String name, String releaseDate, double rating ,String gameIcon) {
        this.id = id;
         this.name = name;
         this.releaseDate = releaseDate;
-        this.gameIcon = gameIcon;
         this.rating = rating;
+        this.gameIcon = gameIcon;
     }
 
     protected Games(Parcel in) {

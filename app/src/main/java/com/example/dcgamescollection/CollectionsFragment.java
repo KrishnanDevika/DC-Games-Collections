@@ -3,11 +3,14 @@ package com.example.dcgamescollection;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.dcgamescollection.CollectionRecyclerView.CustomCollectionAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +23,7 @@ public class CollectionsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    CustomCollectionAdapter adapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -70,7 +74,10 @@ public class CollectionsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_collections, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.collectionList);
-
+        GamesCollectionDatabase db = new GamesCollectionDatabase(getContext());
+        adapter = new CustomCollectionAdapter(db.getAllGames(),getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return view;
     }

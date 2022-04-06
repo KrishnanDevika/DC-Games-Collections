@@ -67,7 +67,6 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
                 @Override
                 public void onClick(View view) {
                     GamesCollectionDatabase db = new GamesCollectionDatabase(context);
-                    Log.d("GAMES", db.getAllGames().toString());
                     boolean isPresent = false;
                     for(Games addedGame : db.getAllGames()){
                         if(addedGame.getName().equals(games.getName())){
