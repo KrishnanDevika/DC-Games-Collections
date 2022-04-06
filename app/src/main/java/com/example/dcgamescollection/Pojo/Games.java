@@ -44,6 +44,13 @@ public class Games  implements Parcelable {
         this.screenShots = screenShots;
     }
 
+    public Games(String name, String releaseDate, String gameIcon, double rating) {
+        this.name = name;
+        this.releaseDate = releaseDate;
+        this.gameIcon = gameIcon;
+        this.rating = rating;
+    }
+
     protected Games(Parcel in) {
         name = in.readString();
         releaseDate = in.readString();

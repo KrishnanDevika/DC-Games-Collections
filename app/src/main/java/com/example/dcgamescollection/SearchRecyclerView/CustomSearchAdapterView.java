@@ -30,10 +30,12 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
 
     private ArrayList<Games> gamesList;
     private Context context;
+    private Bundle extra;
 
-    public CustomSearchAdapterView(ArrayList<Games> gamesList, Context context) {
+    public CustomSearchAdapterView(ArrayList<Games> gamesList, Context context, Bundle extra) {
         this.gamesList = gamesList;
         this.context = context;
+        this.extra = extra;
     }
 
     @NonNull
@@ -41,6 +43,7 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
     public GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View view = LayoutInflater.from(parent.getContext())
                .inflate(R.layout.search_game_item, parent, false);
+
         return new GameViewHolder(view);
     }
 
@@ -50,6 +53,21 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         holder.gameName.setText(games.getName());
         holder.gameRating.setText("Rating: "+String.valueOf(games.getRating()));
         holder.gameReleaseDate.setText(games.getReleaseDate());
+        if(extra.getString("action_type").equals("add")) {
+            holder.save.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("TAG", "onClick: Add");
+                }
+            });
+        } else if(extra.getString("action_type").equals("save")) {
+            holder.save.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("TAG", "onClick: Save");
+                }
+            });
+        }
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
 
         holder.more.setOnClickListener(new View.OnClickListener() {
