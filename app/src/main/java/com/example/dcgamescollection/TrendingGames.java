@@ -97,7 +97,7 @@ public class TrendingGames extends Fragment {
 
     private void getData(){
         Games game = new Games();
-        String API_KEY = "";
+        String API_KEY = "1e670774e0cc43a993b99c3b3a56913e";
 
         //Cannot directly search via url; requires search from function.
         String url = ("https://api.rawg.io/api/games?key="+API_KEY);
@@ -116,7 +116,79 @@ public class TrendingGames extends Fragment {
                             game.setRating(results.getDouble("rating"));
                             game.setReleaseDate(results.getString("released"));
                             game.setGameIcon(results.getString("background_image"));
-                            gamesList.add(new Games(results.getString("name"), results.getString("released"), results.getString("background_image"), results.getDouble("rating")));
+                            game.setPlaytime(results.getInt("playtime"));
+
+                            if(results.isNull("esrb_rating")){
+                                game.setEsrbRating("Not Rated");
+                            }else{
+                                JSONObject esrbObject = results.getJSONObject("esrb_rating");
+                                game.setEsrbRating(esrbObject.getString("name"));
+                            }
+
+                            ArrayList<String> tagList = new ArrayList<>();
+                            if(results.isNull("tags")){
+                                tagList.add("Not Available");
+                            }else {
+                                JSONArray tags = results.getJSONArray("tags");
+                                for (int t = 0; t < tags.length(); t++) {
+                                    JSONObject tagNames = tags.getJSONObject(t);
+                                    tagList.add(tagNames.getString("name"));
+                                }
+                            }
+                            game.setTags(tagList.toArray(new String[0]));
+
+                            ArrayList<String> platformList = new ArrayList<>();
+                            if(results.isNull("platforms")){
+                                platformList.add("Not Available");
+                            }else {
+                                JSONArray platforms = results.getJSONArray("platforms");
+                                for (int p = 0; p < platforms.length(); p++) {
+                                    JSONObject platformNames = platforms.getJSONObject(p);
+                                    JSONObject platform = platformNames.getJSONObject("platform");
+                                    platformList.add(platform.getString("name"));
+                                }
+                            }
+                            game.setPlatforms(platformList.toArray(new String[0]));
+
+                            ArrayList<String> genreList = new ArrayList<>();
+                            if(results.isNull("genres")){
+                                genreList.add("Not Available");
+                            }else {
+                                JSONArray genres = results.getJSONArray("genres");
+                                for (int t = 0; t < genres.length(); t++) {
+                                    JSONObject genreNames = genres.getJSONObject(t);
+                                    genreList.add(genreNames.getString("name"));
+                                }
+                            }
+                            game.setGenres(genreList.toArray(new String[0]));
+
+                            ArrayList<String> storeList = new ArrayList<>();
+                            if(!results.isNull("stores")) {
+                                JSONArray stores = results.getJSONArray("stores");
+                                for (int p = 0; p < stores.length(); p++) {
+                                    JSONObject storeNames = stores.getJSONObject(p);
+                                    JSONObject store = storeNames.getJSONObject("store");
+                                    storeList.add(store.getString("name"));
+                                }
+                            }else{
+                                storeList.add("Not Available");
+                            }
+                            game.setStores(storeList.toArray(new String[0]));
+
+                            ArrayList<String> shotsList = new ArrayList<>();
+                            if(results.isNull("short_screenshots")){
+                                shotsList.add("Not Available");
+                            }else {
+                                JSONArray screenShots = results.getJSONArray("short_screenshots");
+                                for (int t = 0; t < screenShots.length(); t++) {
+                                    JSONObject shots = screenShots.getJSONObject(t);
+                                    shotsList.add(shots.getString("image"));
+                                }
+                            }
+                            game.setScreenShots(shotsList);
+
+                            gamesList.add(new Games(game.getName(), game.getReleaseDate(),game.getGameIcon(), game.getRating(), game.getEsrbRating(),
+                                    game.getPlaytime(), game.getPlatforms(), game.getTags(), game.getGenres(), game.getStores(), game.getScreenShots()));
                         }
                         //Sorts the games, in descending order of their ratings.
                         Collections.sort(gamesList, new Comparator<Games>() {
