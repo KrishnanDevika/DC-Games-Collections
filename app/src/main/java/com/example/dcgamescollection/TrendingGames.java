@@ -1,6 +1,9 @@
 package com.example.dcgamescollection;
 
+import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +28,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,9 +97,10 @@ public class TrendingGames extends Fragment {
 
     private void getData(){
         Games game = new Games();
-        String API_KEY = "1e670774e0cc43a993b99c3b3a56913e";
+        String API_KEY = "";
 
-        String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&rating=4.5,5.0");
+        //Cannot directly search via url; requires search from function.
+        String url = ("https://api.rawg.io/api/games?key="+API_KEY);
 
         Log.d("ResultSearch", url);
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -104,11 +110,28 @@ public class TrendingGames extends Fragment {
                     JSONArray jsonArray = response.getJSONArray("results");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject results = jsonArray.getJSONObject(i);
-                        game.setName(results.getString("name"));
-                        game.setRating(results.getDouble("rating"));
-                        game.setReleaseDate(results.getString("released"));
-                        game.setGameIcon(results.getString("background_image"));
-                        gamesList.add(new Games(results.getString("name"), results.getString("released"),results.getString("background_image"), results.getDouble("rating")));
+                        //Filter games from all games based on its rating.
+                        if (results.getDouble("rating") >= 4.0) {
+                            game.setName(results.getString("name"));
+                            game.setRating(results.getDouble("rating"));
+                            game.setReleaseDate(results.getString("released"));
+                            game.setGameIcon(results.getString("background_image"));
+                            gamesList.add(new Games(results.getString("name"), results.getString("released"), results.getString("background_image"), results.getDouble("rating")));
+                        }
+                        //Sorts the games, in descending order of their ratings.
+                        Collections.sort(gamesList, new Comparator<Games>() {
+                            @Override
+                            //Sorts in descending order(highest number goes first)
+                            public int compare(Games game1, Games game2) {
+                                if(game1.getRating() < game2.getRating()) {
+                                    return 1;
+                                } else if(game1.getRating() == game2.getRating()) {
+                                    return 0;
+                                } else {
+                                    return -1;
+                                }
+                            }
+                        });
                         Bundle extra = new Bundle();
                         extra.putString(ACTION_TYPE, ADD_TO_COLLECTION);
                         adapterView = new CustomSearchAdapterView(gamesList, getContext(), extra);
