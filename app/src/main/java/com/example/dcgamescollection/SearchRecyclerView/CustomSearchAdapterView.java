@@ -1,7 +1,9 @@
 package com.example.dcgamescollection.SearchRecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,10 +56,12 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         holder.gameRating.setText("Rating: "+String.valueOf(games.getRating()));
         holder.gameReleaseDate.setText(games.getReleaseDate());
         if(extra.getString("action_type").equals("add")) {
+            holder.save.setText("Mark");
+            holder.gameRating.setVisibility(View.GONE);
             holder.save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("TAG", "onClick: Add");
+                    Log.d("TAG", "onClick: Save");
                 }
             });
         } else if(extra.getString("action_type").equals("save")) {
