@@ -20,6 +20,12 @@
             android:id="@+id/nav_upcoming"
             android:icon="@drawable/ic_baseline_upcoming_24"
             android:title="@string/menu_latest" />
+
+        <item
+            android:id="@+id/nav_trending"
+            android:icon="@drawable/ic_baseline_auto_graph_24"
+            android:title="@string/menu_trending" />
+
         <item
             android:id="@+id/nav_tips"
             android:icon="@drawable/ic_baseline_tips_and_updates_24"
