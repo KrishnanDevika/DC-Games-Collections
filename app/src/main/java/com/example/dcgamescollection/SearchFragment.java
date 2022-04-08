@@ -109,7 +109,7 @@ public class SearchFragment extends Fragment {
 
    private void getData(String searchValue){
        Games game = new Games();
-       String API_KEY = "";
+       String API_KEY = Const.API_KEY;
        searchValue  = searchValue.replace(" ", "%20");
        String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&search="+searchValue);
 
