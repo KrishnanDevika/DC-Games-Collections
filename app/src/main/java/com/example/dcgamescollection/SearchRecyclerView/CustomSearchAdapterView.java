@@ -1,7 +1,9 @@
 package com.example.dcgamescollection.SearchRecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dcgamescollection.GamesCollectionDatabase;
 import com.example.dcgamescollection.MoreInfoFragment;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.R;
@@ -54,17 +58,34 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         holder.gameRating.setText(String.valueOf(games.getRating()));
         holder.gameReleaseDate.setText(games.getReleaseDate());
         if(extra.getString("action_type").equals("add")) {
+            holder.save.setText("Mark");
+            holder.gameRating.setVisibility(View.GONE);
             holder.save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("TAG", "onClick: Add");
+                    Log.d("TAG", "onClick: Save");
                 }
             });
         } else if(extra.getString("action_type").equals("save")) {
             holder.save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("TAG", "onClick: Save");
+                    GamesCollectionDatabase db = new GamesCollectionDatabase(context);
+                    boolean isPresent = false;
+                    for(Games addedGame : db.getAllGames()){
+                        if(addedGame.getName().equals(games.getName())){
+                            isPresent = true;
+                            holder.save.setEnabled(false);
+                        }
+                    }
+                    if(isPresent){
+                        Toast.makeText(context, "Game Already Added", Toast.LENGTH_SHORT).show();
+                    }else {
+                        db.addGames(games);
+                        Toast.makeText(context, "Game Added", Toast.LENGTH_SHORT).show();
+                        holder.save.setText("Added");
+                        holder.save.setEnabled(false);
+                    }
                 }
             });
         }
