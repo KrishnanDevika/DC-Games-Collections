@@ -1,10 +1,16 @@
 package com.example.dcgamescollection.Database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.dcgamescollection.Pojo.Stats;
+
+import java.util.ArrayList;
 
 public class StatsDatabase extends SQLiteOpenHelper {
 
@@ -25,8 +31,7 @@ public class StatsDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_ROUND_WIN = "wins";
     public static final String COLUMN_ROUND_LOST = "lost";
 
-    //Create Table Query
-
+//Create Table Query
     public static final String CREATE_STATS_TABLE = "CREATE TABLE " +
             TABLE_STATS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
             COLUMN_GAME_NAME        + " TEXT, " +
@@ -36,6 +41,77 @@ public class StatsDatabase extends SQLiteOpenHelper {
             COLUMN_PLAYER_ASSISTS   + " INTEGER, " +
             COLUMN_ROUND_WIN        + " INTEGER, " +
             COLUMN_ROUND_LOST       + " INTEGER)";
+
+//Insert Data in Table Query
+    public void addStats(Stats stats){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_GAME_NAME, stats.getName());
+        values.put(COLUMN_HIGH_SCORE, stats.getHigh_score());
+        values.put(COLUMN_PLAYER_KILLS, stats.getKills());
+        values.put(COLUMN_PLAYER_DEATHS, stats.getDeaths());
+        values.put(COLUMN_PLAYER_ASSISTS, stats.getAssists());
+        values.put(COLUMN_ROUND_WIN, stats.getWins());
+        values.put(COLUMN_ROUND_LOST, stats.getLost());
+
+        db.insert(TABLE_STATS, null, values);
+        db.close();
+    }
+
+//Read/Get Data from Table
+    public Stats getStats(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Stats stats = null;
+        Cursor cursor = db.query(TABLE_STATS,
+                new String[]{COLUMN_ID, COLUMN_GAME_NAME, COLUMN_HIGH_SCORE, COLUMN_PLAYER_KILLS,
+                        COLUMN_PLAYER_DEATHS, COLUMN_PLAYER_ASSISTS, COLUMN_ROUND_WIN, COLUMN_ROUND_LOST}, COLUMN_ID + "= ?",
+                new String[]{String.valueOf(id)}, null, null, null);
+
+        if(cursor.moveToFirst()){
+            stats = new Stats(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getInt(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6),
+                    cursor.getInt(7)
+            );
+        }
+        db.close();
+        return stats;
+    }
+
+//Get all Data from table
+    public ArrayList<Stats> getAllStats(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Stats> stats = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_STATS , null);
+        while (cursor.moveToNext()){
+            stats.add(new Stats(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getInt(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6),
+                    cursor.getInt(7)
+            ));
+        }
+        db.close();
+        return stats;
+    }
+
+//Update Stats Query
+//    public int updateStats(Stats stats){
+//        SQLiteDatabase db = getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//
+//        values.put(COLUMN_GAME_NAME, stats.getName());
+//    }
 
     public StatsDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -48,6 +124,7 @@ public class StatsDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
     }
+
+
 }
