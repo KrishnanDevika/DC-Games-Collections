@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Games  implements Parcelable {
 
+    private int id;
     private String name;
     private String releaseDate;
     private String gameIcon;
@@ -27,9 +28,20 @@ public class Games  implements Parcelable {
     public Games() {
     }
 
-    //Constructor
-
-
+    /**
+     * get data for More Info Fragment
+     * @param name
+     * @param releaseDate
+     * @param gameIcon
+     * @param rating
+     * @param esrbRating
+     * @param playtime
+     * @param platforms
+     * @param tags
+     * @param genres
+     * @param stores
+     * @param screenShots
+     */
     public Games(String name, String releaseDate, String gameIcon, double rating, String esrbRating, int playtime, String[] platforms, String[] tags, String[] genres, String[] stores, ArrayList<String> screenShots) {
         this.name = name;
         this.releaseDate = releaseDate;
@@ -49,6 +61,22 @@ public class Games  implements Parcelable {
         this.releaseDate = releaseDate;
         this.gameIcon = gameIcon;
         this.rating = rating;
+    }
+
+    /**
+     * Read data from database
+     * @param id
+     * @param name
+     * @param releaseDate
+     * @param gameIcon
+     * @param rating
+     */
+    public Games( int id, String name, String releaseDate, double rating ,String gameIcon) {
+       this.id = id;
+        this.name = name;
+        this.releaseDate = releaseDate;
+        this.rating = rating;
+        this.gameIcon = gameIcon;
     }
 
     protected Games(Parcel in) {
@@ -156,6 +184,11 @@ public class Games  implements Parcelable {
 
     public void setScreenShots(ArrayList<String> screenShots) {
         this.screenShots = screenShots;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
     @Override
