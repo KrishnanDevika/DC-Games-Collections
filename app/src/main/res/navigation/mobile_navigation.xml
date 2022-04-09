@@ -41,6 +41,6 @@
     <fragment
         android:id="@+id/nav_upcomingtrending"
         android:name="com.example.dcgamescollection.UpcomingAndTrending"
-        android:label="fragment_upcoming_and_trending"
+        android:label="Upcoming &amp; Trending"
         tools:layout="@layout/fragment_upcoming_and_trending" />
 </navigation>
