@@ -111,6 +111,10 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         return 0;
     }
 
+    public void clear() {
+        gamesList.clear();
+    }
+
     class GameViewHolder extends RecyclerView.ViewHolder {
 
         protected TextView gameName;

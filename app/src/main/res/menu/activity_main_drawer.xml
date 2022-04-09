@@ -27,6 +27,11 @@
             android:title="@string/menu_trending" />
 
         <item
+            android:id="@+id/nav_upcomingtrending"
+            android:icon="@drawable/ic_baseline_upcoming_24"
+            android:title="Upcoming and Trending" />
+
+        <item
             android:id="@+id/nav_tips"
             android:icon="@drawable/ic_baseline_tips_and_updates_24"
             android:title="@string/menu_tips" />
