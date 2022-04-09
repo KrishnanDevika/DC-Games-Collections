@@ -93,8 +93,6 @@ public class UpcomingAndTrending extends Fragment {
 
         TabLayout tabs = view.findViewById(R.id.tabLayout);
 
-        tabs.selectTab(tabs.getTabAt(0));
-
         gameRecyclerView = view.findViewById(R.id.upcomingTrendingRecycler);
 
         gamesList = new ArrayList<>();
@@ -123,6 +121,7 @@ public class UpcomingAndTrending extends Fragment {
                 }
             }
         });
+        tabs.selectTab(tabs.getTabAt(0));
         return view;
     }
 
