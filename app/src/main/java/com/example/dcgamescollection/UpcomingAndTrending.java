@@ -236,7 +236,16 @@ public class UpcomingAndTrending extends Fragment {
                                     game.getPlaytime(), game.getPlatforms(), game.getTags(), game.getGenres(), game.getStores(), game.getScreenShots()));
                         }
 
-                        if(collection == 1) {
+                        if (collection == 0) {
+                            Collections.sort(gamesList, new Comparator<Games>() {
+                                @Override
+                                public int compare(Games game1, Games game2) {
+                                    int game1Date = Integer.parseInt(game1.getReleaseDate().replace("-", ""));
+                                    int game2Date = Integer.parseInt(game2.getReleaseDate().replace("-", ""));
+                                    return game1Date - game2Date;
+                                }
+                            });
+                        } else {
                             //Sorts the games, in descending order of their ratings.
                             Collections.sort(gamesList, new Comparator<Games>() {
                                 @Override
