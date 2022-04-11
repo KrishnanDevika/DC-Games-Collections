@@ -17,4 +17,30 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="GameName">Game Name</string>
+    <string name="ReleaseDateTitle">Release Date:</string>
+    <string name="ReleaseDateFormat">01-01-2000</string>
+    <string name="GenreTitle">Genre:</string>
+    <string name="GenreInput">Action</string>
+    <string name="PlatformsTitle">Platforms:</string>
+    <string name="PlatformInput">Android, ios</string>
+    <string name="RatingsTitle">Rating:</string>
+    <string name="RatingsTV">9.9</string>
+    <string name="AgeRatingTitle">Age Rating:</string>
+    <string name="AgeTV">9.9</string>
+    <string name="AveragePlayTimeTitle">Average Playtime:</string>
+    <string name="PlayTimeTV">1 hour</string>
+    <string name="StoreLabel">Where to buy?</string>
+    <string name="StoreTV">app-store</string>
+    <string name="TagsTitle">Tags:</string>
+    <string name="TagsTV">Single Player, 3D</string>
+    <string name="PlayerIDTitle">Player ID</string>
+    <string name="DOB">Date of birth</string>
+    <string name="PlayerID">Player ID</string>
+    <string name="PlayButtonText">Play</string>
+    <string name="AppIcon">This is our application Icon</string>
+    <string name="GameImages">multiple Image of Current Game</string>
+    <string name="moreButtonText">More</string>
+    <string name="SaveButtonText">Save</string>
+    <string name="yourExp">M Exp</string>
 </resources>
