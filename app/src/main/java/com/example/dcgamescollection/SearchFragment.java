@@ -1,5 +1,6 @@
 package com.example.dcgamescollection;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
@@ -19,6 +20,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.dcgamescollection.Api.GameSingleton;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.SearchRecyclerView.CustomSearchAdapterView;
+import com.example.dcgamescollection.databinding.ActivityMainBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -224,4 +227,5 @@ public class SearchFragment extends Fragment {
         super.onResume();
         getData(searchView.getQuery().toString());
     }
+
 }

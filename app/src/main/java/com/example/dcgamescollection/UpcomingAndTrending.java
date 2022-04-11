@@ -48,7 +48,7 @@ public class UpcomingAndTrending extends Fragment {
     private RecyclerView gameRecyclerView;
     private CustomSearchAdapterView adapter;
     private ArrayList<Games> gamesList;
-    private String url;
+    private static int tabNum;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -102,8 +102,10 @@ public class UpcomingAndTrending extends Fragment {
             public void onTabSelected(TabLayout.Tab tab) {
                 gamesList.clear();
                 if(tabs.getSelectedTabPosition() == 0) {
+                    tabNum = 0;
                     getData(0);
                 } else {
+                    tabNum = 1;
                     getData(1);
                 }
             }
@@ -115,8 +117,10 @@ public class UpcomingAndTrending extends Fragment {
             public void onTabReselected(TabLayout.Tab tab) {
                 gamesList.clear();
                 if(tabs.getSelectedTabPosition() == 0) {
+                    tabNum = 0;
                     getData(0);
                 } else {
+                    tabNum = 1;
                     getData(1);
                 }
             }
@@ -129,6 +133,7 @@ public class UpcomingAndTrending extends Fragment {
 
         Games game = new Games();
         String API_KEY = Const.API_KEY;
+        String url;
 
         if (collection == 0) {
             //https://api.rawg.io/api/games?key=API_KEY&dates=2010-01-01
@@ -289,5 +294,9 @@ public class UpcomingAndTrending extends Fragment {
         });
 
         GameSingleton.getInstance(getContext()).getRequestQueue().add(objectRequest);
+    }
+
+    public static int getTab() {
+        return tabNum;
     }
 }
