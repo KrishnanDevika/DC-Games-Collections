@@ -106,12 +106,27 @@ public class StatsDatabase extends SQLiteOpenHelper {
     }
 
 //Update Stats Query
-//    public int updateStats(Stats stats){
-//        SQLiteDatabase db = getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//
-//        values.put(COLUMN_GAME_NAME, stats.getName());
-//    }
+    public int updateStats(Stats stats){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_GAME_NAME, stats.getName());
+        values.put(COLUMN_HIGH_SCORE, stats.getHigh_score());
+        values.put(COLUMN_PLAYER_KILLS, stats.getKills());
+        values.put(COLUMN_PLAYER_DEATHS, stats.getDeaths());
+        values.put(COLUMN_PLAYER_ASSISTS, stats.getAssists());
+        values.put(COLUMN_ROUND_WIN, stats.getWins());
+        values.put(COLUMN_ROUND_LOST, stats.getLost());
+
+        return db.update(TABLE_STATS, values, COLUMN_ID + "=?", new String[]{String.valueOf(stats.getId())});
+    }
+
+//Delete Stats Query 
+    public void deleteStats(int stats){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_STATS, COLUMN_ID + "=?", new String[]{String.valueOf(stats)});
+        db.close();
+    }
 
     public StatsDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
