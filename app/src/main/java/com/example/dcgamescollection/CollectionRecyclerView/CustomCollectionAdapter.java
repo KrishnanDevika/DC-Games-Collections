@@ -1,6 +1,8 @@
 package com.example.dcgamescollection.CollectionRecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dcgamescollection.GamesCollectionDatabase;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.R;
 import com.squareup.picasso.Picasso;
@@ -45,7 +48,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         Games games = gamesList.get(position);
         holder.gameName.setText(games.getName());
-        holder.gameRating.setText("Rating: "+String.valueOf(games.getRating()));
+        holder.gameRating.setText(String.valueOf(games.getRating()));
         holder.gameReleaseDate.setText(games.getReleaseDate());
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
         holder.save.setVisibility(View.INVISIBLE);
@@ -69,7 +72,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
      * * Creating View Holder For CustomCollectionAdapter.
      *
      */
-    class CustomViewHolder extends RecyclerView.ViewHolder{
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
 
         protected TextView gameName;
         protected TextView gameRating;
@@ -86,6 +89,32 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
             this.more = itemView.findViewById(R.id.infoButton);
             this.save = itemView.findViewById(R.id.saveButton);
             this.gameImage = itemView.findViewById(R.id.imageView);
+            itemView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            new AlertDialog.Builder(context)
+                    .setTitle("Delete")
+                    .setMessage("Are you sure you want to delete " +
+                            gamesList.get(getLayoutPosition()).getName() + "?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            GamesCollectionDatabase db = new GamesCollectionDatabase(context);
+                            //Delete record from database
+                            db.deleteGame(gamesList.get(getLayoutPosition()).getId());
+                            //Delete the record from the ArrayList
+                            gamesList.remove(getLayoutPosition());
+                            //Notify the RecyclerView the item was removed
+                            notifyItemRemoved(getAdapterPosition());
+                            db.close();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+            return false;
         }
     }
 }
