@@ -25,11 +25,6 @@
         android:label="Upcoming and Trending Games"
         tools:layout="@layout/fragment_upcoming_games" />
     <fragment
-        android:id="@+id/nav_tips"
-        android:name="com.example.dcgamescollection.TipsFragment"
-        android:label="Gaming Guides"
-        tools:layout="@layout/fragment_tips" />
-    <fragment
         android:id="@+id/moreInfoFragment"
         android:name="com.example.dcgamescollection.MoreInfoFragment"
         android:label="More Information"
