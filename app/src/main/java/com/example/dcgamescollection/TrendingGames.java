@@ -97,7 +97,7 @@ public class TrendingGames extends Fragment {
 
     private void getData(){
         Games game = new Games();
-        String API_KEY = "1e670774e0cc43a993b99c3b3a56913e";
+        String API_KEY = Const.API_KEY;
 
         //Cannot directly search via url; requires search from function.
         String url = ("https://api.rawg.io/api/games?key="+API_KEY);
