@@ -69,6 +69,7 @@
                 android:id="@+id/infoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
                 android:text="more"
@@ -81,22 +82,11 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
+                android:layout_marginStart="16dp"
                 android:text="Save"
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/infoButton"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
-
-            <!--   <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/imageViewPager"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:padding="3sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />-->
-
 
             <TextView
                 android:id="@+id/dateLabel"
@@ -111,6 +101,20 @@
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
+
+            <ImageView
+                android:id="@+id/webView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/custom_drawable"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/saveButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/saveButton"
+                app:layout_constraintTop_toTopOf="@+id/saveButton"
+                app:srcCompat="@drawable/ic_baseline_language_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
