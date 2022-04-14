@@ -1,5 +1,5 @@
 <resources>
-    <!-- Reply Preference -->
+
     <string-array name="platforms">
         <item>PC</item>
         <item>Xbox One</item>

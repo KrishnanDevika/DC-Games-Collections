@@ -15,6 +15,11 @@ import com.example.dcgamescollection.R;
 
 import java.util.ArrayList;
 
+/**
+ * Author: Devika Krishnan
+ * Date: Apr 12, 2022
+ * Class: CustomSettingsListAdapter
+ */
 public class CustomSettingsListAdapter extends ArrayAdapter<SettingsOptions> {
     public CustomSettingsListAdapter(@NonNull Context context, ArrayList<SettingsOptions> items) {
         super(context, 0, items);

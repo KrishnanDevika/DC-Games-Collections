@@ -1,5 +1,10 @@
 package com.example.dcgamescollection.Settings;
 
+/**
+ * Author: Devika Krishnan
+ * Date: 12, Apr 2022
+ * Class: SettingsOptions
+ */
 public class SettingsOptions {
     private int settingIcon;
     private String settingItems;

@@ -2,11 +2,6 @@
 
     <PreferenceCategory app:title="@string/messages_header">
 
-  <!--      <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />-->
-
         <ListPreference
             app:defaultValue="PC"
             app:entries="@array/platforms"
@@ -29,13 +24,6 @@
         <SwitchPreferenceCompat
             app:key="parent"
             app:title="@string/parent_title" />
-
-<!--        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />-->
 
     </PreferenceCategory>
 
