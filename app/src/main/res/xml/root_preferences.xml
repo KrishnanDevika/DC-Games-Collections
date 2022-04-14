@@ -1,0 +1,42 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/messages_header">
+
+  <!--      <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />-->
+
+        <ListPreference
+            app:defaultValue="PC"
+            app:entries="@array/platforms"
+            app:entryValues="@array/platforms_values"
+            app:key="platformFilter"
+            app:title="@string/filter_title1"
+            app:summary="Please select the Platforms you wish to search games"/>
+
+        <ListPreference
+            app:defaultValue="Action"
+            app:entries="@array/genres"
+            app:entryValues="@array/genres_values"
+            app:key="genreFilter"
+            app:title="@string/filter_title2"
+            app:summary="Please select the Genres you wish to search games"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <SwitchPreferenceCompat
+            app:key="parent"
+            app:title="@string/parent_title" />
+
+<!--        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />-->
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
