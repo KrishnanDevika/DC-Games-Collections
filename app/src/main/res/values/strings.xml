@@ -43,4 +43,13 @@
     <string name="moreButtonText">More</string>
     <string name="SaveButtonText">Save</string>
     <string name="yourExp">M Exp</string>
+    <string name="SelectType">Select Game Type</string>
+    <string name="HighScoreGame">High Score</string>
+    <string name="ScoreBoardGames">Score Board</string>
+    <string name="submitButton">Submit</string>
+    <string name="killsTitle">Kills</string>
+    <string name="deathTitle">Deaths</string>
+    <string name="assistsTitle">Assists</string>
+    <string name="winsTitle">Wins</string>
+    <string name="lostTitle">Lost</string>
 </resources>

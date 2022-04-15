@@ -7,6 +7,7 @@ public class Stats implements Parcelable{
 
     private int id;
     private String name;
+    private int gameType;
     private int high_score;
     private int kills;
     private int deaths;
@@ -24,6 +25,7 @@ public class Stats implements Parcelable{
         this.wins = wins;
         this.lost = lost;
     }
+
 
     protected Stats(Parcel in) {
         id = in.readInt();
@@ -111,6 +113,14 @@ public class Stats implements Parcelable{
 
     public void setLost(int lost) {
         this.lost = lost;
+    }
+
+    public int getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(int gameType) {
+        this.gameType = gameType;
     }
 
     @Override
