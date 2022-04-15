@@ -74,13 +74,23 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_collections:
                         new AlertDialog.Builder(MainActivity.this)
                                 .setTitle("Hint - Collection")
-                                .setMessage("This is a list of all games you have added to your collection of favorite games.")
+                                .setMessage("This is a list of all games you have added to your collection of favorite games.\nTap and Hold to remove the game from your list.")
                                 .setPositiveButton("Okay", null)
                                 .show();
                         break;
                     default:
                         break;
                 }
+            }
+        });
+        binding.appBarMain.fab.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                NavDestination destination = navController.getCurrentDestination();
+                if(destination.getId() == R.id.nav_collections) {
+                    //Navigate to Stats Display Screen.
+                }
+
             }
         });
 
