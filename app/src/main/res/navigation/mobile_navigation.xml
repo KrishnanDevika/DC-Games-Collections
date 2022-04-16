@@ -34,4 +34,9 @@
         android:name="com.example.dcgamescollection.UpcomingAndTrending"
         android:label="Upcoming &amp; Trending"
         tools:layout="@layout/fragment_upcoming_and_trending" />
+    <fragment
+        android:id="@+id/nav_stats_display"
+        android:name="com.example.dcgamescollection.StatsDisplay"
+        android:label="Your Stats"
+        tools:layout="@layout/fragment_stats_display" />
 </navigation>

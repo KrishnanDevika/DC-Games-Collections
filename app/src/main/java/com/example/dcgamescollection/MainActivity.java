@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_collections:
                         new AlertDialog.Builder(MainActivity.this)
                                 .setTitle("Hint - Collection")
-                                .setMessage("This is a list of all games you have added to your collection of favorite games.\nTap and Hold to remove the game from your list.")
+                                .setMessage("This is a list of all games you have added to your collection of favorite games.\nTap and Hold to remove the game from your list.\nTap and hold this button to navigate to the Stats Display Screen.")
                                 .setPositiveButton("Okay", null)
                                 .show();
                         break;
@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onLongClick(View view) {
                 NavDestination destination = navController.getCurrentDestination();
                 if(destination.getId() == R.id.nav_collections) {
-                    //Navigate to Stats Display Screen.
+                    navController.navigate(R.id.nav_stats_display);
                 }
-
+                return false;
             }
         });
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_apphome, R.id.nav_search, R.id.nav_collections,R.id.nav_upcoming, R.id.nav_tips)
+                R.id.nav_apphome, R.id.nav_search, R.id.nav_collections,R.id.nav_upcomingtrending, R.id.nav_tips)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
