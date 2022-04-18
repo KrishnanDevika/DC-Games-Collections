@@ -18,13 +18,9 @@
             android:title="@string/menu_collections" />
 
         <item
-            android:id="@+id/nav_upcomingtrending"
+            android:id="@+id/nav_upcoming"
             android:icon="@drawable/ic_baseline_upcoming_24"
             android:title="@string/menu_upcomingtrending" />
 
-        <item
-            android:id="@+id/nav_tips"
-            android:icon="@drawable/ic_baseline_tips_and_updates_24"
-            android:title="@string/menu_tips" />
     </group>
 </menu>

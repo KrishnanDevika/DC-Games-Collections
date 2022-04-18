@@ -1,10 +1,12 @@
 package com.example.dcgamescollection;
 
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,6 +48,10 @@ public class SearchFragment extends Fragment {
     private RecyclerView gameRecyclerView;
     private CustomSearchAdapterView adapterView;
     private ArrayList<Games> gamesList;
+    SharedPreferences sharedPreferences;
+    int genre;
+    int platforms;
+    String url;
 
 
     // TODO: Rename and change types of parameters
@@ -114,7 +120,79 @@ public class SearchFragment extends Fragment {
        Games game = new Games();
        String API_KEY = Const.API_KEY;
        searchValue  = searchValue.replace(" ", "%20");
-       String url = ("https://api.rawg.io/api/games?key="+API_KEY+"&search="+searchValue);
+
+       sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+       String platform = sharedPreferences.getString("platformFilter","PC" );
+       String genres = sharedPreferences.getString("genreFilter", "Action");
+
+       boolean isParentMode = sharedPreferences.getBoolean("parent", false) ;
+
+       if(platform.equals("PC")){
+           platforms = 4;
+       }
+       if(platform.equals("iOS")){
+           platforms = 3;
+       }
+       if(platform.equals("macOS") ){
+           platforms = 5;
+       }
+       if(platform.equals("Android") ){
+           platforms = 21;
+       }
+       if(platform.equals("Playstation") ){
+           platforms = 10;
+       }
+       if(platform.equals("Xbox One")){
+           platforms = 1;
+       }
+       if(platform.equals("Xbox 360")){
+           platforms = 14;
+       }
+       if(platform.equals("Linux")){
+           platforms = 6;
+       }
+       if(platform.equals("Nintendo Switch")){
+           platforms = 7;
+       }
+
+       if(genres.equals("Action")){
+           genre = 4;
+       }
+       if(genres.equals("Adventure")){
+           genre = 3;
+       }
+       if(genres.equals("Strategy")){
+           genre = 10;
+       }
+       if(genres.equals("Shooter")){
+           genre = 2;
+       }
+       if(genres.equals("Racing")){
+           genre = 1;
+       }
+       if(genres.equals("Sports")){
+           genre = 15;
+       }
+       if(genres.equals("Puzzle")){
+           genre = 7;
+       }
+       if(genres.equals("Educational")){
+           genre = 34;
+       }
+       if(genres.equals("RPG")){
+           genre = 5;
+       }
+
+       if(isParentMode){
+           url ="https://api.rawg.io/api/platforms?key="+Const.API_KEY+"&parents";
+       }
+       if(!searchValue.equals("")){
+           url = ("https://api.rawg.io/api/games?key="+API_KEY+"&search="+searchValue);
+
+       }else {
+           url = "https://api.rawg.io/api/games?key="+API_KEY+"&platforms="+platforms+"&genres="+genre;
+
+       }
 
        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
            @Override

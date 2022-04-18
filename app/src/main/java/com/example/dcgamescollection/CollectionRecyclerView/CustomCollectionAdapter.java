@@ -68,6 +68,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
                 Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
             }
         });
+        holder.webImage.setVisibility(View.INVISIBLE);
 
     }
 
@@ -96,6 +97,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
         protected Button save;
         protected Button more;
         protected Button mExp;
+        protected  ImageView webImage;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -106,6 +108,8 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
             this.save = itemView.findViewById(R.id.saveButton);
             this.gameImage = itemView.findViewById(R.id.imageView);
             this.mExp = itemView.findViewById(R.id.mExpButton);
+            this.webImage = itemView.findViewById(R.id.webView);
+
             itemView.setOnLongClickListener(this);
         }
 

@@ -18,6 +18,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<<<<<<< HEAD
     <string name="GameName">Game Name</string>
     <string name="ReleaseDateTitle">Release Date:</string>
     <string name="ReleaseDateFormat">01-01-2000</string>
@@ -53,4 +54,25 @@
     <string name="assistsTitle">Assists</string>
     <string name="winsTitle">Wins</string>
     <string name="lostTitle">Lost</string>
+=======
+    <!-- Preference Titles -->
+    <string name="messages_header">Search by Platforms, Genres</string>
+    <string name="sync_header">Parent Mode</string>
+
+    <string name="filter_title1">Platforms</string>
+    <string name="filter_title2">Genres</string>
+    <string name="parent_title">Parent Mode</string>
+
+    <string name="author">Authors</string>
+    <string name="authorName1">Devika Krishnan</string>
+    <string name="authorName2">Chintan Ramparia</string>
+    <string name="authorName3">Alex Coutinho</string>
+
+    <string name="specialThanks">Special Thanks to</string>
+    <string name="specialName">Cai Filiault</string>
+    <string name="refernces">References</string>
+    <string name="api_ref">https://rawg.io/</string>
+    <string name="api_ref2">All Game data from public api https://rawg.io/apidocs</string>
+
+>>>>>>> development
 </resources>

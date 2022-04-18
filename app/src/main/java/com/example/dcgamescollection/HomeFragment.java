@@ -1,12 +1,19 @@
 package com.example.dcgamescollection;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +26,8 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static  String getName;
+    public static  String getDob;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +68,33 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        EditText nameText = view.findViewById(R.id.playerInput);
+        EditText dob = view.findViewById(R.id.DateOfBirthInput);
+        Button playButton = view.findViewById(R.id.playButton);
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getName = nameText.getText().toString();
+                getDob = dob.getText().toString();
+                if (view.requestFocus()) {
+                    InputMethodManager imm = (InputMethodManager)
+                            getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+                if(!getName.equals("")){
+                    Navigation.findNavController(view).navigate(R.id.nav_search);
+                }else{
+                    Toast.makeText(getContext(), "Please fill out all the fields", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+
+
+        return view;
     }
 }

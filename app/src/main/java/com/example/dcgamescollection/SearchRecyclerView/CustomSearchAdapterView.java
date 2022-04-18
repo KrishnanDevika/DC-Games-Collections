@@ -2,6 +2,7 @@ package com.example.dcgamescollection.SearchRecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.util.Log;
@@ -110,6 +111,17 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
             });
         }
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
+        holder.webImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = games.getName();
+                name  = name.replace(" ", "-");
+                String url = "https://rawg.io/games/"+name;
+                Uri webpage = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                context.startActivity(intent);
+            }
+        });
 
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +158,7 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         protected Button save;
         protected Button more;
         protected Button mExp;
+        protected ImageView webImage;
 
         public GameViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -156,6 +169,7 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
             this.save = itemView.findViewById(R.id.saveButton);
             this.gameImage = itemView.findViewById(R.id.imageView);
             this.mExp = itemView.findViewById(R.id.mExpButton);
+            this.webImage = itemView.findViewById(R.id.webView);
         }
     }
 }
