@@ -71,9 +71,7 @@ public class SettingsFragment extends Fragment {
 
         ArrayList<SettingsOptions> settingOptions = new ArrayList<>();
         settingOptions.add(new SettingsOptions( R.drawable.ic_baseline_person_24,"Personal Details", "Name, DOB"));
-      //  settingOptions.add(new SettingsOptions(R.drawable.ic_baseline_filter_alt_24, "Filter", "Search Preferences"));
         settingOptions.add(new SettingsOptions(R.drawable.ic_baseline_share_24, "Share App", ""));
-        settingOptions.add(new SettingsOptions(R.drawable.ic_baseline_help_24, "Help", "Frequently asked Questions"));
         settingOptions.add(new SettingsOptions(R.drawable.ic_baseline_remember_me_24, "Credits" , "Thanks to"));
 
         settingsList.setAdapter(new CustomSettingsListAdapter(getContext(), settingOptions));
@@ -82,10 +80,8 @@ public class SettingsFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position){
                     case 0:
+                        Navigation.findNavController(view).navigate(R.id.nav_profile);
                         break;
-                  /*  case 1:
-                        Navigation.findNavController(view).navigate(R.id.nav_filter);
-                        break;*/
                     case 1:
                         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");
@@ -93,8 +89,6 @@ public class SettingsFragment extends Fragment {
                         startActivity(Intent.createChooser(sharingIntent, "Share via"));
                         break;
                     case 2:
-                        break;
-                    case 3:
                         Navigation.findNavController(view).navigate(R.id.nav_credits);
                         break;
                 }

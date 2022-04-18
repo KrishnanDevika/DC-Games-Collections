@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/bangers"
-        android:text="Player ID"
+        android:text="Player Name"
         android:textColor="@color/TextColor"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -23,14 +23,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/playeridInput"
+        android:id="@+id/playerInput"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="@color/cardview_dark_background"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Player ID"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -48,9 +47,9 @@
         android:textColor="@color/TextColor"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/playeridInput"
-        app:layout_constraintStart_toStartOf="@+id/playeridInput"
-        app:layout_constraintTop_toBottomOf="@+id/playeridInput" />
+        app:layout_constraintEnd_toEndOf="@+id/playerInput"
+        app:layout_constraintStart_toStartOf="@+id/playerInput"
+        app:layout_constraintTop_toBottomOf="@+id/playerInput" />
 
     <EditText
         android:id="@+id/DateOfBirthInput"
