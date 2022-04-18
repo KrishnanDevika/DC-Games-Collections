@@ -32,7 +32,6 @@
         tools:layout="@layout/fragment_more_info" />
 
     <fragment
-<<<<<<< HEAD
         android:id="@+id/nav_upcomingtrending"
         android:name="com.example.dcgamescollection.UpcomingAndTrending"
         android:label="Upcoming &amp; Trending"
@@ -47,7 +46,7 @@
         android:name="com.example.dcgamescollection.AskUserRecord"
         android:label="fragment_ask_user_record"
         tools:layout="@layout/fragment_ask_user_record" />
-=======
+    <fragment
         android:id="@+id/nav_settings"
         android:name="com.example.dcgamescollection.Settings.SettingsFragment"
         android:label="Settings"
@@ -66,5 +65,4 @@
         android:label="Profile Fragment"
         tools:layout="@layout/fragment_profile" />
 
->>>>>>> development
 </navigation>

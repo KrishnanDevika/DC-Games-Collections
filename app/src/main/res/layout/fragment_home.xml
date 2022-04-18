@@ -14,12 +14,8 @@
         android:layout_height="41dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/bangers"
-<<<<<<< HEAD
         android:text="@string/PlayerIDTitle"
         android:textAlignment="center"
-=======
-        android:text="Player Name"
->>>>>>> development
         android:textColor="@color/TextColor"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -35,10 +31,7 @@
         android:background="@color/cardview_shadow_start_color"
         android:ems="10"
         android:inputType="textPersonName"
-<<<<<<< HEAD
         android:text="@string/PlayerID"
-=======
->>>>>>> development
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"

@@ -85,13 +85,9 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
                 android:layout_marginEnd="48dp"
-                android:text="@string/SaveButtonText"
-=======
                 android:layout_marginStart="16dp"
                 android:text="Save"
->>>>>>> development
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
                 app:layout_constraintStart_toEndOf="@+id/infoButton"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
@@ -111,7 +107,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
 
-<<<<<<< HEAD
             <Button
                 android:id="@+id/mExpButton"
                 android:layout_width="141dp"
@@ -123,7 +118,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/dateLabel"
                 app:layout_constraintTop_toBottomOf="@+id/gameLabel" />
-=======
+
             <ImageView
                 android:id="@+id/webView"
                 android:layout_width="wrap_content"
@@ -137,7 +132,7 @@
                 app:layout_constraintStart_toEndOf="@+id/saveButton"
                 app:layout_constraintTop_toTopOf="@+id/saveButton"
                 app:srcCompat="@drawable/ic_baseline_language_24" />
->>>>>>> development
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
