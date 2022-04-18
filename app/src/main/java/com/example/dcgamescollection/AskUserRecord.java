@@ -163,6 +163,7 @@ public class AskUserRecord extends Fragment {
                             stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));
                             stats.setWins(Integer.parseInt(InputWins.getText().toString()));
                             stats.setLost(Integer.parseInt(InputLost.getText().toString()));
+                            stats.setGameType(false);
 
                             StatsDatabase db = new StatsDatabase(getContext());
                             db.addStats(stats);
@@ -208,6 +209,7 @@ public class AskUserRecord extends Fragment {
 
                             stats.setName(finalGameName);
                             stats.setHigh_score(Integer.parseInt(InputHighScore.getText().toString()));
+                            stats.setGameType(true);
 //                            stats.setKills(Integer.parseInt(InputKills.getText().toString()));
 //                            stats.setDeaths(Integer.parseInt(InputDeaths.getText().toString()));
 //                            stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));

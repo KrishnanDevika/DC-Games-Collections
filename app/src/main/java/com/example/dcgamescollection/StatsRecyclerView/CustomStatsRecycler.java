@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dcgamescollection.R;
@@ -37,12 +38,43 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         Stats stats = statsList.get(position);
         holder.title.setText(stats.getName());
-        holder.highScore.setText("High Score: " + stats.getHigh_score());
-        holder.kills.setText("Kills: " + stats.getKills());
-        holder.deaths.setText("Deaths: " + stats.getDeaths());
-        holder.assists.setText("Assists: " + stats.getAssists());
-        holder.wins.setText("Wins: " + stats.getWins());
-        holder.losses.setText("Losses: " + stats.getLost());
+        //Game is a High-Score
+        if (stats.getGameType()) {
+            holder.highScore.setVisibility(View.VISIBLE);
+            //holder.highScore.setHeight(80);
+            holder.highScore.setText("High Score: " + stats.getHigh_score());
+            holder.kills.setVisibility(View.GONE);
+            //holder.kills.setHeight(0);
+            holder.deaths.setVisibility(View.GONE);
+            //holder.deaths.setHeight(0);
+            holder.assists.setVisibility(View.GONE);
+            //holder.assists.setHeight(0);
+            holder.wins.setVisibility(View.GONE);
+            //holder.wins.setHeight(0);
+            holder.losses.setVisibility(View.GONE);
+            //holder.losses.setHeight(0);
+        }
+        //Game is a ScoreBoard
+        else {
+            holder.highScore.setVisibility(View.GONE);
+            //holder.highScore.setHeight(0);
+            holder.kills.setVisibility(View.VISIBLE);
+            //holder.kills.setHeight(80);
+            holder.kills.setText("Kills: " + stats.getKills());
+            holder.deaths.setVisibility(View.VISIBLE);
+            //holder.deaths.setHeight(80);
+            holder.deaths.setText("Deaths: " + stats.getDeaths());
+            holder.assists.setVisibility(View.VISIBLE);
+            //holder.assists.setHeight(80);
+            holder.assists.setText("Assists: " + stats.getAssists());
+            holder.wins.setVisibility(View.VISIBLE);
+            //holder.wins.setHeight(80);
+            holder.wins.setText("Wins: " + stats.getWins());
+            holder.losses.setVisibility(View.VISIBLE);
+            //holder.losses.setHeight(80);
+            holder.losses.setText("Losses: " + stats.getLost());
+        }
+
     }
 
     @Override
@@ -62,6 +94,7 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
         protected TextView assists;
         protected TextView wins;
         protected TextView losses;
+        protected Button edit;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +105,7 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
             this.assists = itemView.findViewById(R.id.statsAssists);
             this.wins = itemView.findViewById(R.id.statsWins);
             this.losses = itemView.findViewById(R.id.statsLosses);
+            this.edit = itemView.findViewById(R.id.editButton);
         }
     }
 

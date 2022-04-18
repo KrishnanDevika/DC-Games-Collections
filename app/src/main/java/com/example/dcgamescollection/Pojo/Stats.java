@@ -7,7 +7,7 @@ public class Stats implements Parcelable{
 
     private int id;
     private String name;
-    private int gameType;
+    private boolean gameType;
     private int high_score;
     private int kills;
     private int deaths;
@@ -32,6 +32,7 @@ public class Stats implements Parcelable{
     public Stats(String name, int high_score) {
         this.name = name;
         this.high_score = high_score;
+        this.gameType = true;
     }
 
     public Stats(String name, int kills, int deaths, int assists, int wins, int lost) {
@@ -41,6 +42,7 @@ public class Stats implements Parcelable{
         this.assists = assists;
         this.wins = wins;
         this.lost = lost;
+        this.gameType = false;
     }
 
     @Override
@@ -136,11 +138,11 @@ public class Stats implements Parcelable{
         this.lost = lost;
     }
 
-    public int getGameType() {
+    public boolean getGameType() {
         return gameType;
     }
 
-    public void setGameType(int gameType) {
+    public void setGameType(boolean gameType) {
         this.gameType = gameType;
     }
 

@@ -76,6 +76,12 @@
                     android:textSize="24sp"
                     android:textAlignment="center"/>
 
+            <Button
+                android:id="@+id/editButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit" />
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
