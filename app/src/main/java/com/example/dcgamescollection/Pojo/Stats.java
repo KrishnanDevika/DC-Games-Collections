@@ -7,7 +7,7 @@ public class Stats implements Parcelable{
 
     private int id;
     private String name;
-    private boolean gameType;
+    private int gameType;
     private int high_score;
     private int kills;
     private int deaths;
@@ -18,9 +18,10 @@ public class Stats implements Parcelable{
     public Stats() {
     }
 
-    public Stats(int id, String name, int high_score, int kills, int deaths, int assists, int wins, int lost) {
+    public Stats(int id, String name, int gameType, int high_score, int kills, int deaths, int assists, int wins, int lost) {
         this.id = id;
         this.name = name;
+        this.gameType = gameType;
         this.high_score = high_score;
         this.kills = kills;
         this.deaths = deaths;
@@ -32,7 +33,7 @@ public class Stats implements Parcelable{
     public Stats(String name, int high_score) {
         this.name = name;
         this.high_score = high_score;
-        this.gameType = true;
+        this.gameType = 1;
     }
 
     public Stats(String name, int kills, int deaths, int assists, int wins, int lost) {
@@ -42,7 +43,7 @@ public class Stats implements Parcelable{
         this.assists = assists;
         this.wins = wins;
         this.lost = lost;
-        this.gameType = false;
+        this.gameType = 0;
     }
 
     @Override
@@ -138,11 +139,11 @@ public class Stats implements Parcelable{
         this.lost = lost;
     }
 
-    public boolean getGameType() {
+    public int getGameType() {
         return gameType;
     }
 
-    public void setGameType(boolean gameType) {
+    public void setGameType(int gameType) {
         this.gameType = gameType;
     }
 
@@ -155,6 +156,7 @@ public class Stats implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(id);
         parcel.writeString(name);
+        parcel.writeInt(gameType);
         parcel.writeInt(high_score);
         parcel.writeInt(kills);
         parcel.writeInt(deaths);

@@ -41,7 +41,6 @@ public class AskUserRecord extends Fragment {
     public static final int CREATE = 0;
     public static final int UPDATE = 1;
 
-
     Games games;
     Stats stats;
 
@@ -145,41 +144,41 @@ public class AskUserRecord extends Fragment {
                     KillsTitle.setHeight(80);
                     InputKills.setVisibility(View.VISIBLE);
                     InputKills.setHeight(80);
-                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
-                        InputKills.setText(stats.getKills());
-                    }
+//                    if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
+//                        InputKills.setText(stats.getKills());
+//                    }
 
                     DeathsTitle.setVisibility(View.VISIBLE);
                     DeathsTitle.setHeight(80);
                     InputDeaths.setVisibility(View.VISIBLE);
                     InputDeaths.setHeight(80);
-                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
-                        InputDeaths.setText(stats.getDeaths());
-                    }
+//                    if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
+//                        InputDeaths.setText(stats.getDeaths());
+//                    }
 
                     AssistsTitle.setVisibility(View.VISIBLE);
                     AssistsTitle.setHeight(80);
                     InputAssists.setVisibility(View.VISIBLE);
                     InputAssists.setHeight(80);
-                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
-                        InputKills.setText(stats.getAssists());
-                    }
+//                    if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
+//                        InputKills.setText(stats.getAssists());
+//                    }
 
                     WinsTitle.setVisibility(View.VISIBLE);
                     WinsTitle.setHeight(80);
                     InputWins.setVisibility(View.VISIBLE);
                     InputWins.setHeight(80);
-                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
-                        InputWins.setText(stats.getWins());
-                    }
+//                    if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
+//                        InputWins.setText(stats.getWins());
+//                    }
 
                     LostTitle.setVisibility(View.VISIBLE);
                     LostTitle.setHeight(80);
                     InputLost.setVisibility(View.VISIBLE);
                     InputLost.setHeight(80);
-                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
-                        InputLost.setText(stats.getLost());
-                    }
+//                    if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
+//                        InputLost.setText(stats.getLost());
+//                    }
 
                     SubmitButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -192,12 +191,12 @@ public class AskUserRecord extends Fragment {
                             stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));
                             stats.setWins(Integer.parseInt(InputWins.getText().toString()));
                             stats.setLost(Integer.parseInt(InputLost.getText().toString()));
-                            stats.setGameType(false);
+                            stats.setGameType(0);
 
                             StatsDatabase db = new StatsDatabase(getContext());
                             if(getArguments().getInt(ACTION_TYPE) == 0) {
                                 db.addStats(stats);
-                            } else {
+                            } else if(getArguments().getInt(ACTION_TYPE) == 1){
                                 db.updateStats(stats);
                             }
                             db.close();
@@ -210,9 +209,9 @@ public class AskUserRecord extends Fragment {
                     HighScoreTitle.setHeight(80);
                     InputHighScore.setVisibility(View.VISIBLE);
                     InputHighScore.setHeight(80);
-                    if(stats.getGameType() && getArguments().getInt(ACTION_TYPE) == 1) {
-                        InputHighScore.setText(stats.getHigh_score());
-                    }
+//                    if((stats.getGameType() == 1) && getArguments().getInt(ACTION_TYPE) == 1) {
+//                        InputHighScore.setText(stats.getHigh_score());
+//                    }
 
                     KillsTitle.setVisibility(View.INVISIBLE);
                     KillsTitle.setHeight(0);
@@ -245,7 +244,7 @@ public class AskUserRecord extends Fragment {
 
                             stats.setName(finalGameName);
                             stats.setHigh_score(Integer.parseInt(InputHighScore.getText().toString()));
-                            stats.setGameType(true);
+                            stats.setGameType(1);
 //                            stats.setKills(Integer.parseInt(InputKills.getText().toString()));
 //                            stats.setDeaths(Integer.parseInt(InputDeaths.getText().toString()));
 //                            stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));
@@ -255,7 +254,7 @@ public class AskUserRecord extends Fragment {
                             StatsDatabase db = new StatsDatabase(getContext());
                             if(getArguments().getInt(ACTION_TYPE) == 0) {
                                 db.addStats(stats);
-                            } else {
+                            } else if(getArguments().getInt(ACTION_TYPE) == 1){
                                 db.updateStats(stats);
                             }
                             db.close();

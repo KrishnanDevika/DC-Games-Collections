@@ -41,7 +41,7 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
         Stats stats = statsList.get(position);
         holder.title.setText(stats.getName());
         //Game is a High-Score
-        if (stats.getGameType()) {
+        if (stats.getGameType() == 1) {
             holder.highScore.setVisibility(View.VISIBLE);
             //holder.highScore.setHeight(80);
             holder.highScore.setText("High Score: " + stats.getHigh_score());
@@ -64,9 +64,9 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
                     Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
                 }
             });
-        }
-        //Game is a ScoreBoard
-        else {
+            //Game is a ScoreBoard
+        } else {
+
             holder.highScore.setVisibility(View.GONE);
             //holder.highScore.setHeight(0);
             holder.kills.setVisibility(View.VISIBLE);
