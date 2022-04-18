@@ -20,11 +20,6 @@
         android:label="My Collections"
         tools:layout="@layout/fragment_collections" />
     <fragment
-        android:id="@+id/nav_upcoming"
-        android:name="com.example.dcgamescollection.UpcomingGamesFragment"
-        android:label="Upcoming and Trending Games"
-        tools:layout="@layout/fragment_upcoming_games" />
-    <fragment
         android:id="@+id/nav_tips"
         android:name="com.example.dcgamescollection.TipsFragment"
         android:label="Gaming Guides"
@@ -35,7 +30,8 @@
         android:label="More Information"
         tools:layout="@layout/fragment_more_info" />
     <fragment
-        android:id="@+id/nav_trending"
-        android:name="com.example.dcgamescollection.TrendingGames"
-        tools:layout="@layout/fragment_trending_games" />
+        android:id="@+id/nav_upcomingtrending"
+        android:name="com.example.dcgamescollection.UpcomingAndTrending"
+        android:label="Upcoming &amp; Trending"
+        tools:layout="@layout/fragment_upcoming_and_trending" />
 </navigation>

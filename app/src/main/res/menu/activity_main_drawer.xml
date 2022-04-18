@@ -16,15 +16,11 @@
             android:id="@+id/nav_collections"
             android:icon="@drawable/ic_baseline_collections_24"
             android:title="@string/menu_collections" />
-        <item
-            android:id="@+id/nav_upcoming"
-            android:icon="@drawable/ic_baseline_upcoming_24"
-            android:title="@string/menu_latest" />
 
         <item
-            android:id="@+id/nav_trending"
-            android:icon="@drawable/ic_baseline_auto_graph_24"
-            android:title="@string/menu_trending" />
+            android:id="@+id/nav_upcomingtrending"
+            android:icon="@drawable/ic_baseline_upcoming_24"
+            android:title="@string/menu_upcomingtrending" />
 
         <item
             android:id="@+id/nav_tips"
