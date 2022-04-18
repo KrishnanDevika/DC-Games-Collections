@@ -53,6 +53,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
         holder.save.setVisibility(View.INVISIBLE);
         holder.more.setVisibility(View.INVISIBLE);
+        holder.webImage.setVisibility(View.INVISIBLE);
 
     }
 
@@ -80,6 +81,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
         protected ImageView gameImage;
         protected Button save;
         protected Button more;
+        protected  ImageView webImage;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +91,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
             this.more = itemView.findViewById(R.id.infoButton);
             this.save = itemView.findViewById(R.id.saveButton);
             this.gameImage = itemView.findViewById(R.id.imageView);
+            this.webImage = itemView.findViewById(R.id.webView);
             itemView.setOnLongClickListener(this);
         }
 

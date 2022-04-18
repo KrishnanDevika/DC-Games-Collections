@@ -1,12 +1,14 @@
 package com.example.dcgamescollection;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_apphome, R.id.nav_search, R.id.nav_collections,R.id.nav_upcoming, R.id.nav_tips)
+                R.id.nav_apphome, R.id.nav_search, R.id.nav_collections,R.id.nav_upcoming)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -54,6 +56,21 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+
+            case R.id.action_settings:
+                Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(R.id.nav_settings);
+                break;
+            case R.id.action_filter:
+                Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(R.id.nav_filter);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

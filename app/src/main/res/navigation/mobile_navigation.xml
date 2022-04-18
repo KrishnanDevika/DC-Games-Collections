@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_search">
+    app:startDestination="@id/nav_apphome">
     <fragment
         android:id="@+id/nav_apphome"
         android:name="com.example.dcgamescollection.HomeFragment"
@@ -20,18 +20,34 @@
         android:label="My Collections"
         tools:layout="@layout/fragment_collections" />
     <fragment
-        android:id="@+id/nav_tips"
-        android:name="com.example.dcgamescollection.TipsFragment"
-        android:label="Gaming Guides"
-        tools:layout="@layout/fragment_tips" />
+        android:id="@+id/nav_upcoming"
+        android:name="com.example.dcgamescollection.UpcomingAndTrending"
+        android:label="Upcoming &amp; Trending"
+        tools:layout="@layout/fragment_upcoming_and_trending" />
+
     <fragment
         android:id="@+id/moreInfoFragment"
         android:name="com.example.dcgamescollection.MoreInfoFragment"
         android:label="More Information"
         tools:layout="@layout/fragment_more_info" />
+
     <fragment
-        android:id="@+id/nav_upcomingtrending"
-        android:name="com.example.dcgamescollection.UpcomingAndTrending"
-        android:label="Upcoming &amp; Trending"
-        tools:layout="@layout/fragment_upcoming_and_trending" />
+        android:id="@+id/nav_settings"
+        android:name="com.example.dcgamescollection.Settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_filter"
+        android:name="com.example.dcgamescollection.FilterFragment"
+        android:label="FilterFragment" />
+    <fragment
+        android:id="@+id/nav_credits"
+        android:name="com.example.dcgamescollection.Fragments.CreditsFragment"
+        android:label="CreditsFragment" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.dcgamescollection.Fragments.ProfileFragment"
+        android:label="Profile Fragment"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>
