@@ -13,7 +13,7 @@
         tools:context=".AskUserRecord">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/StatsGameTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -34,7 +34,7 @@
             android:textOn="@string/ScoreBoardGames"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/StatsGameTitle" />
 
         <LinearLayout
             android:id="@+id/formView"
@@ -148,7 +148,7 @@
                 android:inputType="number" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/submitButton" />

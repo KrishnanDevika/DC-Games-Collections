@@ -15,6 +15,9 @@ public class Stats implements Parcelable{
     private int wins;
     private int lost;
 
+    public Stats() {
+    }
+
     public Stats(int id, String name, int high_score, int kills, int deaths, int assists, int wins, int lost) {
         this.id = id;
         this.name = name;
@@ -26,6 +29,24 @@ public class Stats implements Parcelable{
         this.lost = lost;
     }
 
+    public Stats(String name, int high_score) {
+        this.name = name;
+        this.high_score = high_score;
+    }
+
+    public Stats(String name, int kills, int deaths, int assists, int wins, int lost) {
+        this.name = name;
+        this.kills = kills;
+        this.deaths = deaths;
+        this.assists = assists;
+        this.wins = wins;
+        this.lost = lost;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 
     protected Stats(Parcel in) {
         id = in.readInt();

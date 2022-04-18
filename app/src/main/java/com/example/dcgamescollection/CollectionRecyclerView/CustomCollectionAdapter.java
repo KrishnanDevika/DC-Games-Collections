@@ -14,6 +14,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dcgamescollection.AskUserRecord;
+import com.example.dcgamescollection.MoreInfoFragment;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.R;
 import com.google.android.material.navigation.NavigationView;
@@ -31,8 +33,6 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
 
     private ArrayList<Games> gamesList;
     private Context context;
-    NavigationView navigationView;
-    NavController navController;
 
     public CustomCollectionAdapter(ArrayList<Games> gamesList, Context context) {
         this.gamesList = gamesList;
@@ -58,7 +58,9 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
             @Override
             public void onClick(View view) {
                 Bundle extra = new Bundle();
-                Navigation.findNavController(view).navigate(R.id.ask_user_record);
+                extra.putParcelable(AskUserRecord.STATS,
+                        gamesList.get(holder.getAdapterPosition()));
+                Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
             }
         });
 

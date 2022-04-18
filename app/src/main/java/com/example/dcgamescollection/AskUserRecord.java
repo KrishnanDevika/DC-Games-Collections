@@ -1,20 +1,28 @@
 package com.example.dcgamescollection;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.example.dcgamescollection.Database.StatsDatabase;
+import com.example.dcgamescollection.Pojo.Games;
+import com.example.dcgamescollection.Pojo.Stats;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +35,10 @@ public class AskUserRecord extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static final String STATS = "stats";
+
+
+    Games games;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,8 +80,13 @@ public class AskUserRecord extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ask_user_record, container, false);
+        Stats stats = new Stats();
 
         ToggleButton changeView = view.findViewById(R.id.toggleButton);
+
+        TextView NameTitle = view.findViewById(R.id.StatsGameTitle);
+        games = getArguments().getParcelable(STATS);
+        NameTitle.setText(games.getName());
 
 //All the TextField in the form to take input of user
         TextView HighScoreTitle = view.findViewById(R.id.highscoreTitle);
@@ -80,54 +97,85 @@ public class AskUserRecord extends Fragment {
         TextView LostTitle = view.findViewById(R.id.lostTitle);
 
 //All the input box in the form to take input of user
-        EditText InputhighScore = view.findViewById(R.id.socreInputField);
+        EditText InputHighScore = view.findViewById(R.id.socreInputField);
         EditText InputKills = view.findViewById(R.id.killsInputField);
         EditText InputDeaths = view.findViewById(R.id.deathInputField);
         EditText InputAssists = view.findViewById(R.id.assistsInputField);
         EditText InputWins = view.findViewById(R.id.winInputField);
         EditText InputLost = view.findViewById(R.id.lostInputField);
 
+        Button SubmitButton = view.findViewById(R.id.submitButton);
+        String gameName = "";
+        if(getArguments() != null) {
+            games = getArguments().getParcelable(STATS);
+            if (games != null) {
+                gameName = games.getName();
+            }
+        }
+        String finalGameName = gameName;
+        Log.d("ASK", finalGameName);
+
+
+
 
         changeView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(changeView.isChecked()){
+                if (changeView.isChecked()) {
                     HighScoreTitle.setVisibility(View.INVISIBLE);
                     HighScoreTitle.setHeight(0);
-                    InputhighScore.setVisibility(View.INVISIBLE);
-                    InputhighScore.setHeight(0);
+                    InputHighScore.setVisibility(View.INVISIBLE);
+                    InputHighScore.setHeight(0);
 
                     KillsTitle.setVisibility(View.VISIBLE);
-                    KillsTitle.setHeight(50);
+                    KillsTitle.setHeight(80);
                     InputKills.setVisibility(View.VISIBLE);
-                    InputKills.setHeight(50);
+                    InputKills.setHeight(80);
 
                     DeathsTitle.setVisibility(View.VISIBLE);
-                    DeathsTitle.setHeight(50);
+                    DeathsTitle.setHeight(80);
                     InputDeaths.setVisibility(View.VISIBLE);
-                    InputDeaths.setHeight(50);
+                    InputDeaths.setHeight(80);
 
                     AssistsTitle.setVisibility(View.VISIBLE);
-                    AssistsTitle.setHeight(50);
+                    AssistsTitle.setHeight(80);
                     InputAssists.setVisibility(View.VISIBLE);
-                    InputAssists.setHeight(50);
+                    InputAssists.setHeight(80);
 
                     WinsTitle.setVisibility(View.VISIBLE);
-                    WinsTitle.setHeight(50);
+                    WinsTitle.setHeight(80);
                     InputWins.setVisibility(View.VISIBLE);
-                    InputWins.setHeight(50);
+                    InputWins.setHeight(80);
 
                     LostTitle.setVisibility(View.VISIBLE);
-                    LostTitle.setHeight(50);
+                    LostTitle.setHeight(80);
                     InputLost.setVisibility(View.VISIBLE);
-                    InputLost.setHeight(50);
+                    InputLost.setHeight(80);
 
+                    SubmitButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
 
-                }else{
+                            stats.setName(finalGameName);
+                            //stats.setHigh_score(Integer.parseInt(InputHighScore.getText().toString()));
+                            stats.setKills(Integer.parseInt(InputKills.getText().toString()));
+                            stats.setDeaths(Integer.parseInt(InputDeaths.getText().toString()));
+                            stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));
+                            stats.setWins(Integer.parseInt(InputWins.getText().toString()));
+                            stats.setLost(Integer.parseInt(InputLost.getText().toString()));
+
+                            StatsDatabase db = new StatsDatabase(getContext());
+                            db.addStats(stats);
+                            db.close();
+                            Navigation.findNavController(view).popBackStack();
+                        }
+                    });
+
+                } else {
                     HighScoreTitle.setVisibility(View.VISIBLE);
-                    HighScoreTitle.setHeight(50);
-                    InputhighScore.setVisibility(View.VISIBLE);
-                    InputhighScore.setHeight(50);
+                    HighScoreTitle.setHeight(80);
+                    InputHighScore.setVisibility(View.VISIBLE);
+                    InputHighScore.setHeight(80);
 
                     KillsTitle.setVisibility(View.INVISIBLE);
                     KillsTitle.setHeight(0);
@@ -154,10 +202,27 @@ public class AskUserRecord extends Fragment {
                     InputLost.setVisibility(View.INVISIBLE);
                     InputLost.setHeight(0);
 
+                    SubmitButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            stats.setName(finalGameName);
+                            stats.setHigh_score(Integer.parseInt(InputHighScore.getText().toString()));
+//                            stats.setKills(Integer.parseInt(InputKills.getText().toString()));
+//                            stats.setDeaths(Integer.parseInt(InputDeaths.getText().toString()));
+//                            stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));
+//                            stats.setWins(Integer.parseInt(InputWins.getText().toString()));
+//                            stats.setLost(Integer.parseInt(InputLost.getText().toString()));
+
+                            StatsDatabase db = new StatsDatabase(getContext());
+                            db.addStats(stats);
+                            db.close();
+                            Navigation.findNavController(view).popBackStack();
+                        }
+                    });
                 }
             }
         });
-
         return view;
     }
 }
