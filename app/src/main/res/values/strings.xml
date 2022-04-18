@@ -13,6 +13,7 @@
     <string name="menu_latest">Upcoming Games</string>
     <string name="menu_tips">Gaming Tips</string>
     <string name="menu_trending">Trending Games</string>
+    <string name="menu_upcomingtrending">Upcoming and Trending</string>
     <string name="menu_slideshow">Slideshow</string>
 
     <!-- TODO: Remove or change this placeholder text -->

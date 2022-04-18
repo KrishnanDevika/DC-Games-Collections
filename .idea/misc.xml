@@ -25,6 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.17798913043478262" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.17798913043478262" />
+        <entry key="app/src/main/res/layout/fragment_upcoming_and_trending.xml" value="0.20153985507246377" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/search_game_item.xml" value="0.375" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.23802083333333332" />

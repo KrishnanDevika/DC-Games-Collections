@@ -24,7 +24,11 @@ import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Author : Devika Krishnan
@@ -64,7 +68,23 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
             holder.save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("TAG", "onClick: Save");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Date date = null;
+                    {
+                        try {
+                            date = sdf.parse(holder.gameReleaseDate.getText().toString());
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    Intent intent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.Events.TITLE, "Release Date: " + holder.gameName)
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, date);
+                    if(intent.resolveActivity(context.getPackageManager()) != null) {
+                        context.startActivity(intent);
+                        Toast.makeText(context, "Date added to Calendar", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         } else if(extra.getString("action_type").equals("save")) {
@@ -121,6 +141,10 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
             return  gamesList.size();
         }
         return 0;
+    }
+
+    public void clear() {
+        gamesList.clear();
     }
 
     class GameViewHolder extends RecyclerView.ViewHolder {
