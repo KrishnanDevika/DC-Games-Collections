@@ -64,6 +64,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
                 Bundle extra = new Bundle();
                 extra.putParcelable(AskUserRecord.STATS,
                         gamesList.get(holder.getAdapterPosition()));
+                extra.putInt(AskUserRecord.ACTION_TYPE, AskUserRecord.CREATE);
                 Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
             }
         });

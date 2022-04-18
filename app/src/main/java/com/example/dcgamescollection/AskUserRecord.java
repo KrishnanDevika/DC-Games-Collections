@@ -37,8 +37,13 @@ public class AskUserRecord extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     public static final String STATS = "stats";
 
+    public static final String ACTION_TYPE = "action_type";
+    public static final int CREATE = 0;
+    public static final int UPDATE = 1;
+
 
     Games games;
+    Stats stats;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -80,13 +85,21 @@ public class AskUserRecord extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ask_user_record, container, false);
-        Stats stats = new Stats();
 
         ToggleButton changeView = view.findViewById(R.id.toggleButton);
 
         TextView NameTitle = view.findViewById(R.id.StatsGameTitle);
-        games = getArguments().getParcelable(STATS);
-        NameTitle.setText(games.getName());
+
+        if(getArguments().getInt(ACTION_TYPE) == 0) {
+            games = getArguments().getParcelable(STATS);
+            NameTitle.setText(games.getName());
+            stats = new Stats();
+        } else if(getArguments().getInt(ACTION_TYPE) == 1) {
+            games = null;
+            stats = getArguments().getParcelable(STATS);
+            NameTitle.setText(stats.getName());
+        }
+
 
 //All the TextField in the form to take input of user
         TextView HighScoreTitle = view.findViewById(R.id.highscoreTitle);
@@ -107,9 +120,10 @@ public class AskUserRecord extends Fragment {
         Button SubmitButton = view.findViewById(R.id.submitButton);
         String gameName = "";
         if(getArguments() != null) {
-            games = getArguments().getParcelable(STATS);
             if (games != null) {
                 gameName = games.getName();
+            } else {
+                gameName = stats.getName();
             }
         }
         String finalGameName = gameName;
@@ -131,26 +145,41 @@ public class AskUserRecord extends Fragment {
                     KillsTitle.setHeight(80);
                     InputKills.setVisibility(View.VISIBLE);
                     InputKills.setHeight(80);
+                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
+                        InputKills.setText(stats.getKills());
+                    }
 
                     DeathsTitle.setVisibility(View.VISIBLE);
                     DeathsTitle.setHeight(80);
                     InputDeaths.setVisibility(View.VISIBLE);
                     InputDeaths.setHeight(80);
+                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
+                        InputDeaths.setText(stats.getDeaths());
+                    }
 
                     AssistsTitle.setVisibility(View.VISIBLE);
                     AssistsTitle.setHeight(80);
                     InputAssists.setVisibility(View.VISIBLE);
                     InputAssists.setHeight(80);
+                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
+                        InputKills.setText(stats.getAssists());
+                    }
 
                     WinsTitle.setVisibility(View.VISIBLE);
                     WinsTitle.setHeight(80);
                     InputWins.setVisibility(View.VISIBLE);
                     InputWins.setHeight(80);
+                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
+                        InputWins.setText(stats.getWins());
+                    }
 
                     LostTitle.setVisibility(View.VISIBLE);
                     LostTitle.setHeight(80);
                     InputLost.setVisibility(View.VISIBLE);
                     InputLost.setHeight(80);
+                    if(!(stats.getGameType()) && getArguments().getInt(ACTION_TYPE) == 1) {
+                        InputLost.setText(stats.getLost());
+                    }
 
                     SubmitButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -166,7 +195,11 @@ public class AskUserRecord extends Fragment {
                             stats.setGameType(false);
 
                             StatsDatabase db = new StatsDatabase(getContext());
-                            db.addStats(stats);
+                            if(getArguments().getInt(ACTION_TYPE) == 0) {
+                                db.addStats(stats);
+                            } else {
+                                db.updateStats(stats);
+                            }
                             db.close();
                             Navigation.findNavController(view).popBackStack();
                         }
@@ -177,6 +210,9 @@ public class AskUserRecord extends Fragment {
                     HighScoreTitle.setHeight(80);
                     InputHighScore.setVisibility(View.VISIBLE);
                     InputHighScore.setHeight(80);
+                    if(stats.getGameType() && getArguments().getInt(ACTION_TYPE) == 1) {
+                        InputHighScore.setText(stats.getHigh_score());
+                    }
 
                     KillsTitle.setVisibility(View.INVISIBLE);
                     KillsTitle.setHeight(0);
@@ -217,7 +253,11 @@ public class AskUserRecord extends Fragment {
 //                            stats.setLost(Integer.parseInt(InputLost.getText().toString()));
 
                             StatsDatabase db = new StatsDatabase(getContext());
-                            db.addStats(stats);
+                            if(getArguments().getInt(ACTION_TYPE) == 0) {
+                                db.addStats(stats);
+                            } else {
+                                db.updateStats(stats);
+                            }
                             db.close();
                             Navigation.findNavController(view).popBackStack();
                         }

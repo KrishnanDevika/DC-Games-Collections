@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.dcgamescollection.AskUserRecord;
 import com.example.dcgamescollection.R;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dcgamescollection.Pojo.Stats;
@@ -53,6 +55,15 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
             //holder.wins.setHeight(0);
             holder.losses.setVisibility(View.GONE);
             //holder.losses.setHeight(0);
+            holder.edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle extra = new Bundle();
+                    extra.putParcelable(AskUserRecord.STATS, stats);
+                    extra.putInt(AskUserRecord.ACTION_TYPE, AskUserRecord.UPDATE);
+                    Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
+                }
+            });
         }
         //Game is a ScoreBoard
         else {
@@ -73,6 +84,15 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
             holder.losses.setVisibility(View.VISIBLE);
             //holder.losses.setHeight(80);
             holder.losses.setText("Losses: " + stats.getLost());
+            holder.edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle extra = new Bundle();
+                    extra.putParcelable(AskUserRecord.STATS, stats);
+                    extra.putInt(AskUserRecord.ACTION_TYPE, AskUserRecord.UPDATE);
+                    Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
+                }
+            });
         }
 
     }
