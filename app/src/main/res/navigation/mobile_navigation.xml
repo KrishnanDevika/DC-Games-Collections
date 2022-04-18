@@ -42,4 +42,8 @@
         android:id="@+id/nav_filter"
         android:name="com.example.dcgamescollection.FilterFragment"
         android:label="FilterFragment" />
+    <fragment
+        android:id="@+id/nav_credits"
+        android:name="com.example.dcgamescollection.Fragments.CreditsFragment"
+        android:label="CreditsFragment" />
 </navigation>

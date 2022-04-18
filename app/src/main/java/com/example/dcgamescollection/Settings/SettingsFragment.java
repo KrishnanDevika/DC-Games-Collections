@@ -95,6 +95,7 @@ public class SettingsFragment extends Fragment {
                     case 2:
                         break;
                     case 3:
+                        Navigation.findNavController(view).navigate(R.id.nav_credits);
                         break;
                 }
             }
