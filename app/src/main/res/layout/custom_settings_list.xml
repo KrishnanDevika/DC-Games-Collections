@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/Background1"
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true">
 
@@ -46,6 +47,7 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/layout_padding"
                 android:text="TextView"
+                android:textColor="@color/white"
                 android:textSize="@dimen/contact_title_size"
                 android:textStyle="bold" />
 
@@ -53,6 +55,7 @@
                 android:id="@+id/settingDesc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/white"
                 android:paddingLeft="@dimen/layout_padding"
                 android:text="TextView"
                 android:textSize="@dimen/contact_list_text_size" />
