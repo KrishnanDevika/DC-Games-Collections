@@ -72,14 +72,12 @@
     <string name="api_ref">https://rawg.io/</string>
     <string name="api_ref2">All Game data from public api https://rawg.io/apidocs</string>
 
-    <string name="hintTitle_Home">Hint - Home</string>
-    <string name="hintText_Home">Use this page to log your Name and DOB to the app.</string>
     <string name="hintTitle_Search">Hint -  Search</string>
-    <string name="hintText_Search">Search for your favorite games by title.\n\nYou can see \"MORE\" information for each and \"SAVE\" them to your collection</string>
+    <string name="hintText_Search">Search for your favorite games by title.\n\nYou can see \"MORE\" information for each and \"SAVE\" them to your collection.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
     <string name="hintTitle_Upcoming">Hint -  Upcoming</string>
-    <string name="hintText_Upcoming">See the titles that are on the verge of being released.\n\nYou can see "MORE" information for each and "MARK" the release date on your calendar</string>
+    <string name="hintText_Upcoming">See the titles that are on the verge of being released.\n\nYou can see "MORE" information for each and "MARK" the release date on your calendar.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
     <string name="hintTitle_Trending">Hint -  Trending</string>
-    <string name="hintText_Trending">See the titles that are currently on top of the charts.\n\nYou can see "MORE" information for each and "SAVE" them to your collection</string>
+    <string name="hintText_Trending">See the titles that are currently on top of the charts.\n\nYou can see "MORE" information for each and "SAVE" them to your collection.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
     <string name="hintTitle_MoreInfo">Hint -  More Info</string>
     <string name="hintText_MoreInfo">Scroll through detailed information about the selected game, including screenshots.</string>
     <string name="hintTitle_Collection">Hint - Collection</string>
@@ -90,10 +88,6 @@
     <string name="hintText_StatInput">Enter your stats for the selected game here.\n\nToggle between a High-Score or Scoreboard-type stats with the button on top.</string>
     <string name="hintTitle_Settings">Hint - Settings</string>
     <string name="hintText_Settings">View your \"Personal Details\" from this page.\n\n \"Share\" the app on Social Media via this page.\n\nYou can also see who is credited with the making of this app.</string>
-    <string name="hintTitle_Profile">Hint - Profile Settings</string>
-    <string name="hintText_Profile">This is the information you entered when you first opened the app.</string>
-    <string name="hintTitle_Credits">Hint - Credits</string>
-    <string name="hintText_Credits">These are the people and sites responsible for the making of this app.\n\nThank you for downloading DC Games Collection!</string>
     <string name="hintTitle_Filter">Hint - Filter menu</string>
     <string name="hintText_Filter">Filter your searches based on your favorite platform or genre.\n\nOr, limit your searches to family-friendly content with \"Parent Mode\".</string>
     <string name="hintButton">Okay</string>

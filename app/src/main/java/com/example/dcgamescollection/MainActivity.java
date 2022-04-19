@@ -43,8 +43,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 if(destination.getId() == R.id.nav_collections) {
+                    binding.appBarMain.fab.setVisibility(View.VISIBLE);
                     binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_auto_graph_24);
+                } else if(destination.getId() == R.id.nav_apphome || destination.getId() == R.id.nav_credits || destination.getId() == R.id.nav_profile) {
+                    binding.appBarMain.fab.setVisibility(View.GONE);
                 } else {
+                    binding.appBarMain.fab.setVisibility(View.VISIBLE);
                     binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_question_mark_24);
                 }
             }
@@ -55,13 +59,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 NavDestination destination = navController.getCurrentDestination();
                 switch (destination.getId()) {
-                    case R.id.nav_apphome:
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(R.string.hintTitle_Home)
-                                .setTitle(R.string.hintText_Home)
-                                .setPositiveButton(R.string.hintButton, null)
-                                .show();
-                        break;
                     case R.id.nav_search:
                         new AlertDialog.Builder(MainActivity.this)
                             .setTitle(R.string.hintTitle_Search)
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                     .setMessage(R.string.hintText_Upcoming)
                                     .setPositiveButton(R.string.hintButton, null)
                                     .show();
-                        } else {
+                        } else if(UpcomingAndTrending.getTab() == 1) {
                             new AlertDialog.Builder(MainActivity.this)
                                     .setTitle(R.string.hintTitle_Trending)
                                     .setMessage(R.string.hintText_Trending)
@@ -116,19 +113,6 @@ public class MainActivity extends AppCompatActivity {
                         new AlertDialog.Builder(MainActivity.this)
                                 .setTitle(R.string.hintTitle_Settings)
                                 .setMessage(R.string.hintText_Settings)
-                                .setPositiveButton(R.string.hintButton, null)
-                                .show();
-                        break;
-                    case R.id.nav_profile:
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(R.string.hintTitle_Profile)
-                                .setMessage(R.string.hintText_Profile)
-                                .setPositiveButton(R.string.hintButton, null);
-                        break;
-                    case R.id.nav_credits:
-                        new AlertDialog.Builder(MainActivity.this)
-                                .setTitle(R.string.hintTitle_Credits)
-                                .setMessage(R.string.hintText_Credits)
                                 .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
