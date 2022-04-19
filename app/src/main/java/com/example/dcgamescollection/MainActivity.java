@@ -57,82 +57,86 @@ public class MainActivity extends AppCompatActivity {
                 switch (destination.getId()) {
                     case R.id.nav_apphome:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Home")
-                                .setTitle("Use this page to log your Name and DOB to the app")
-                                .setPositiveButton("Okay", null)
+                                .setTitle(R.string.hintTitle_Home)
+                                .setTitle(R.string.hintText_Home)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.nav_search:
                         new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("Hint -  Search")
-                            .setMessage("Search for your favorite games by title. You can see MORE information for each and SAVE them to your collection")
-                            .setPositiveButton("Okay", null)
+                            .setTitle(R.string.hintTitle_Search)
+                            .setMessage(R.string.hintText_Search)
+                            .setPositiveButton(R.string.hintButton, null)
                             .show();
                         break;
                     case R.id.nav_upcomingtrending:
                         if(UpcomingAndTrending.getTab() == 0) {
                             new AlertDialog.Builder(MainActivity.this)
-                                    .setTitle("Hint -  Upcoming")
-                                    .setMessage("See the titles that are on the verge of being released. You can see MORE information for each and MARK the release date on your calendar")
-                                    .setPositiveButton("Okay", null)
+                                    .setTitle(R.string.hintTitle_Upcoming)
+                                    .setMessage(R.string.hintText_Upcoming)
+                                    .setPositiveButton(R.string.hintButton, null)
                                     .show();
                         } else {
                             new AlertDialog.Builder(MainActivity.this)
-                                    .setTitle("Hint -  Trending")
-                                    .setMessage("See the titles that are currently on top of the charts. You can see MORE information for each and SAVE them to your collection")
-                                    .setPositiveButton("Okay", null)
+                                    .setTitle(R.string.hintTitle_Trending)
+                                    .setMessage(R.string.hintText_Trending)
+                                    .setPositiveButton(R.string.hintButton, null)
                                     .show();
                         }
                         break;
                     case R.id.moreInfoFragment:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint -  More Info")
-                                .setMessage("Scroll through detailed information about the selected game, including screenshots.")
-                                .setPositiveButton("Okay", null)
+                                .setTitle(R.string.hintTitle_MoreInfo)
+                                .setMessage(R.string.hintText_MoreInfo)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.nav_collections:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Collection")
-                                .setMessage("This is a list of all games you have added to your collection of favorite games.\nTap and Hold a game to remove the game from your list.\nTap the \"M EXP\" button to enter your stats for your latest playthrough.\nTap and hold this button to navigate to the Stats Display Screen.")
-                                .setPositiveButton("Okay", null)
+                                .setTitle(R.string.hintTitle_Collection)
+                                .setMessage(R.string.hintText_Collection)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.nav_stats_display:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Your Stats")
-                                .setMessage("See the stats of the games you play.\nTap the \"Edit\" button to alter the displayed stats.")
-                                .setPositiveButton("Okay", null)
+                                .setTitle(R.string.hintTitle_Stats)
+                                .setMessage(R.string.hintText_Stats)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.ask_user_record:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Input Stats")
-                                .setMessage("Enter your stats for the selected game here.\nToggle between a High-Score or Scoreboard-type stats with the button on top.")
-                                .setPositiveButton("Okay", null)
+                                .setTitle(R.string.hintTitle_StatInput)
+                                .setMessage(R.string.hintText_StatInput)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.nav_settings:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Settings")
-                                .setMessage("View your \"Personal Details\" from this page.\n \"Share\" the app on Social Media via this page.\nYou can also see who is credited with the making of this app.")
-                                .setPositiveButton("Okay", null)
+                                .setTitle(R.string.hintTitle_Settings)
+                                .setMessage(R.string.hintText_Settings)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.nav_profile:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Profile Settings")
-                                .setMessage("This is the information you entered when you first opened the app.");
+                                .setTitle(R.string.hintTitle_Profile)
+                                .setMessage(R.string.hintText_Profile)
+                                .setPositiveButton(R.string.hintButton, null);
+                        break;
                     case R.id.nav_credits:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Credits")
-                                .setMessage("These are the people and sites responsible for the making of this app. Thank you for downloading DC Games Collection!")
+                                .setTitle(R.string.hintTitle_Credits)
+                                .setMessage(R.string.hintText_Credits)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     case R.id.nav_filter:
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Hint - Filter menu")
-                                .setMessage("Filter your searches based on your favorite platform or genre.\nOr, limit your searches to family-friendly content with \"Parent Mode\".")
+                                .setTitle(R.string.hintTitle_Filter)
+                                .setMessage(R.string.hintText_Filter)
+                                .setPositiveButton(R.string.hintButton, null)
                                 .show();
                         break;
                     default:
