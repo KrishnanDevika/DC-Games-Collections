@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/grey_primary">
 
 
         <ImageView
@@ -55,9 +56,9 @@
                 android:id="@+id/settingDesc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/white"
                 android:paddingLeft="@dimen/layout_padding"
                 android:text="TextView"
+                android:textColor="@color/white"
                 android:textSize="@dimen/contact_list_text_size" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

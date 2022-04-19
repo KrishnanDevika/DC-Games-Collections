@@ -10,13 +10,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="30dp"
-        android:background="@color/Background2">
+        android:background="@color/blue_200"
+        app:cardCornerRadius="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Background2">
+            android:background="@color/blue_500">
 
             <LinearLayout
                 android:id="@+id/imagelayout"
@@ -58,7 +58,6 @@
                 android:padding="10dp"
                 android:text="Game Name"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +68,7 @@
                 android:id="@+id/infoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="18dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
                 android:text="more"
@@ -90,12 +89,12 @@
 
             <TextView
                 android:id="@+id/dateLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_width="87dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/bangers"
                 android:text="26 - 11 - 2001"
-                android:textColor="@color/TextColor"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
