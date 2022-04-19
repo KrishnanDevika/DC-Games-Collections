@@ -33,7 +33,8 @@ Games that are in the collections can allow the user to add their achievements a
 ##### Upcoming and Recent release games
 This tab will display list of all upcoming game releases and recently released games.
 ##### Settings
-Setting have the option to Filter the game search based on countries they have selected. Also have Game price currency conversion. Other menus include share option so that this app can be recommended to another user.  Also includes FAQ in the settings.
+Setting have the option to Filter the game search based on platforms and genres. Other menus include share option so that this app can be recommended to another user.
+Also we have shown hints to the user when they click Fab button in each screen.
 
 #### Database:
 One table to store all the games in the collections. Second table contains stats of each game in the collections.
@@ -56,6 +57,8 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
     }
 ##### Dependencies
 *   implementation 'androidx.preference:preference:1.1.1'
+*   implementation 'com.android.volley:volley:1.2.1'
+*   implementation 'com.squareup.picasso:picasso:2.5.2'
 
 
 ### Install and build
@@ -63,6 +66,7 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
 * Clone the repo
 * Open the project in Android Studio
 * Build and run
+* Need API key to fetch games
 
 
 ### Author
@@ -70,7 +74,8 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
 | 		Name      |     Account    |      Email         |
 | ---------------- | ------------- | ------------------ |
 | Devika Krishnan | KrishnanDevika |  w0774427@myscc.ca |
-| Chintan Kamelesh Ramparia | CRamparia | CR63@myscc.ca
+| Chintan Kamalesh Ramparia | CRamparia | w0771148@myscc.ca |
+| Alex Justin Coutinho | acoutinho | w0542845@myscc.ca |
 
 
 
