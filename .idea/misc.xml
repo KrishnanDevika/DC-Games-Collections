@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable-v24/custom_drawable.xml" value="0.16944444444444445" />
         <entry key="app/src/main/res/drawable/default_dot.xml" value="0.1712962962962963" />
         <entry key="app/src/main/res/drawable/ic_app_launcher_foreground.xml" value="0.16574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_baseline_cake_24.xml" value="0.17037037037037037" />
         <entry key="app/src/main/res/drawable/ic_baseline_language_24.xml" value="0.17037037037037037" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.11875" />
         <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.1712962962962963" />
@@ -26,6 +27,7 @@
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.17798913043478262" />
         <entry key="app/src/main/res/layout/fragment_upcoming_and_trending.xml" value="0.20153985507246377" />
+        <entry key="app/src/main/res/layout/highscore_form.xml" value="0.20153985507246377" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/search_game_item.xml" value="0.375" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.23802083333333332" />

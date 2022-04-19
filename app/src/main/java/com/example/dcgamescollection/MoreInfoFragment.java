@@ -4,12 +4,16 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.dcgamescollection.ImageViewPager.ImageViewAdapter;
@@ -75,6 +79,7 @@ public class MoreInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_more_info, container, false);
+        ConstraintLayout layout = view.findViewById(R.id.infoLayout);
         ViewPager2 imageViewPager = view.findViewById(R.id.gameImage);
         TabLayout tabLayout = view.findViewById(R.id.tabLayout);
         TextView nameTextView = view.findViewById(R.id.gameNameLabel);
@@ -111,6 +116,10 @@ public class MoreInfoFragment extends Fragment {
                     (tab, position) -> tab.setText("")
             ).attach();
         }
+
+
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.info_animation);
+        layout.startAnimation(animation);
         return view;
     }
 
