@@ -14,9 +14,8 @@ Also provide us with the option to remove the game if don’t want it to be in y
 ### Screenshots
 
 
-
-![GamesCollection](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemFlow1.png)
 ![GamesCollection](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemflow2.png)
+![GamesCollection](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemFlow1.png)
 
 
 
