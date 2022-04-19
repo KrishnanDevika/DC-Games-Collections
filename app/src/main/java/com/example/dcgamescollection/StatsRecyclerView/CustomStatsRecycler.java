@@ -1,7 +1,10 @@
 package com.example.dcgamescollection.StatsRecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dcgamescollection.AskUserRecord;
+import com.example.dcgamescollection.Database.StatsDatabase;
 import com.example.dcgamescollection.R;
 
 import androidx.annotation.NonNull;
@@ -43,18 +47,12 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
         //Game is a High-Score
         if (stats.getGameType() == 1) {
             holder.highScore.setVisibility(View.VISIBLE);
-            //holder.highScore.setHeight(80);
             holder.highScore.setText("High Score: " + stats.getHigh_score());
             holder.kills.setVisibility(View.GONE);
-            //holder.kills.setHeight(0);
             holder.deaths.setVisibility(View.GONE);
-            //holder.deaths.setHeight(0);
             holder.assists.setVisibility(View.GONE);
-            //holder.assists.setHeight(0);
             holder.wins.setVisibility(View.GONE);
-            //holder.wins.setHeight(0);
             holder.losses.setVisibility(View.GONE);
-            //holder.losses.setHeight(0);
             holder.edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -68,21 +66,15 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
         } else {
 
             holder.highScore.setVisibility(View.GONE);
-            //holder.highScore.setHeight(0);
             holder.kills.setVisibility(View.VISIBLE);
-            //holder.kills.setHeight(80);
             holder.kills.setText("Kills: " + stats.getKills());
             holder.deaths.setVisibility(View.VISIBLE);
-            //holder.deaths.setHeight(80);
             holder.deaths.setText("Deaths: " + stats.getDeaths());
             holder.assists.setVisibility(View.VISIBLE);
-            //holder.assists.setHeight(80);
             holder.assists.setText("Assists: " + stats.getAssists());
             holder.wins.setVisibility(View.VISIBLE);
-            //holder.wins.setHeight(80);
             holder.wins.setText("Wins: " + stats.getWins());
             holder.losses.setVisibility(View.VISIBLE);
-            //holder.losses.setHeight(80);
             holder.losses.setText("Losses: " + stats.getLost());
             holder.edit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -105,7 +97,7 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
         return 0;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         protected TextView title;
         protected TextView highScore;
@@ -126,7 +118,40 @@ public class CustomStatsRecycler extends RecyclerView.Adapter<CustomStatsRecycle
             this.wins = itemView.findViewById(R.id.statsWins);
             this.losses = itemView.findViewById(R.id.statsLosses);
             this.edit = itemView.findViewById(R.id.editButton);
+
+            itemView.setOnLongClickListener(this);
         }
+
+        /**
+         * @author chintan
+         * @date : April 18 2022
+         *
+         * @content
+         *
+         * Adding long Click listener
+         *
+         */
+
+        @Override
+        public boolean onLongClick(View view) {
+            new AlertDialog.Builder(context).setTitle("Delete")
+                    .setMessage("Are you sure, you want to delete " + statsList.get(getLayoutPosition()).getName() + "?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            StatsDatabase db = new StatsDatabase(context);
+                            db.deleteStats(statsList.get(getLayoutPosition()).getId());
+                            statsList.remove(getLayoutPosition());
+                            notifyItemRemoved(getAdapterPosition());
+                            db.close();
+                        }
+                    }).setNegativeButton("No", null)
+                    .show();
+            return false;
+        }
+
+
+
     }
 
 }
