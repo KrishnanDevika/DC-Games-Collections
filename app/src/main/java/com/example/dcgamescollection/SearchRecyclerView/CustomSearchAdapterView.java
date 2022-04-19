@@ -133,6 +133,8 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
 
             }
         });
+
+        holder.mExp.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -155,6 +157,7 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
         protected ImageView gameImage;
         protected Button save;
         protected Button more;
+        protected Button mExp;
         protected ImageView webImage;
 
         public GameViewHolder(@NonNull View itemView) {
@@ -165,6 +168,7 @@ public class CustomSearchAdapterView extends RecyclerView.Adapter<CustomSearchAd
             this.more = itemView.findViewById(R.id.infoButton);
             this.save = itemView.findViewById(R.id.saveButton);
             this.gameImage = itemView.findViewById(R.id.imageView);
+            this.mExp = itemView.findViewById(R.id.mExpButton);
             this.webImage = itemView.findViewById(R.id.webView);
         }
     }

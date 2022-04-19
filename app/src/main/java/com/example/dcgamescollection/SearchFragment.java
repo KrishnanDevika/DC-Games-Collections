@@ -1,14 +1,15 @@
 package com.example.dcgamescollection;
 
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.dcgamescollection.Api.GameSingleton;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.SearchRecyclerView.CustomSearchAdapterView;
+import com.example.dcgamescollection.databinding.ActivityMainBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -302,4 +305,5 @@ public class SearchFragment extends Fragment {
         super.onResume();
         getData(searchView.getQuery().toString());
     }
+
 }

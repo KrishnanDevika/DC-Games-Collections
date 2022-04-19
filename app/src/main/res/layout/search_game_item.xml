@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
+                    android:contentDescription="@string/GameImages"
                     app:srcCompat="@mipmap/ic_app_launcher" />
 
             </LinearLayout>
@@ -44,8 +45,8 @@
                 android:layout_gravity="end"
                 android:background="@color/ratingsBackground"
                 android:padding="5dp"
-                android:text="4.48"
-                android:textColor="@color/TextColor"
+                android:text="@string/RatingsTV"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imagelayout"
                 app:layout_constraintEnd_toEndOf="@+id/imagelayout" />
@@ -56,7 +57,7 @@
                 android:layout_height="51dp"
                 android:background="@color/NameBackground"
                 android:padding="10dp"
-                android:text="Game Name"
+                android:text="@string/GameName"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -71,7 +72,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
-                android:text="more"
+                android:text="@string/moreButtonText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/saveButton"
                 app:layout_constraintStart_toEndOf="@+id/dateLabel"
@@ -81,6 +82,7 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
                 android:layout_marginStart="16dp"
                 android:text="Save"
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
@@ -89,17 +91,29 @@
 
             <TextView
                 android:id="@+id/dateLabel"
-                android:layout_width="87dp"
-                android:layout_height="29dp"
-                android:layout_marginStart="20dp"
                 android:fontFamily="@font/bangers"
-                android:text="26 - 11 - 2001"
+                android:layout_width="84dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="30dp"
+                android:text="@string/ReleaseDateFormat"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
+
+            <Button
+                android:id="@+id/mExpButton"
+                android:layout_width="141dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/yourExp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dateLabel"
+                app:layout_constraintTop_toBottomOf="@+id/gameLabel" />
 
             <ImageView
                 android:id="@+id/webView"
@@ -114,6 +128,7 @@
                 app:layout_constraintStart_toEndOf="@+id/saveButton"
                 app:layout_constraintTop_toTopOf="@+id/saveButton"
                 app:srcCompat="@drawable/ic_baseline_language_24" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
