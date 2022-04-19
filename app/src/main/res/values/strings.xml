@@ -2,12 +2,97 @@
     <string name="app_name">DCGamesCollection</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">DC Games Collections</string>
+    <string name="nav_header_subtitle">dccollect@dcg.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_collections">My Collections</string>
+    <string name="menu_latest">Upcoming Games</string>
+    <string name="menu_tips">Gaming Tips</string>
+    <string name="menu_trending">Trending Games</string>
+    <string name="menu_upcomingtrending">Upcoming and Trending</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="GameName">Game Name</string>
+    <string name="ReleaseDateTitle">Release Date:</string>
+    <string name="ReleaseDateFormat">01-01-2000</string>
+    <string name="GenreTitle">Genre:</string>
+    <string name="GenreInput">Action</string>
+    <string name="PlatformsTitle">Platforms:</string>
+    <string name="PlatformInput">Android, ios</string>
+    <string name="RatingsTitle">Rating:</string>
+    <string name="RatingsTV">9.9</string>
+    <string name="AgeRatingTitle">Age Rating:</string>
+    <string name="AgeTV">9.9</string>
+    <string name="AveragePlayTimeTitle">Average Playtime:</string>
+    <string name="PlayTimeTV">1 hour</string>
+    <string name="StoreLabel">Where to buy?</string>
+    <string name="StoreTV">app-store</string>
+    <string name="TagsTitle">Tags:</string>
+    <string name="TagsTV">Single Player, 3D</string>
+    <string name="PlayerIDTitle">Player ID</string>
+    <string name="DOB">Date of birth</string>
+    <string name="PlayerID">Player ID</string>
+    <string name="PlayButtonText">Play</string>
+    <string name="AppIcon">This is our application Icon</string>
+    <string name="GameImages">multiple Image of Current Game</string>
+    <string name="moreButtonText">More</string>
+    <string name="SaveButtonText">Save</string>
+    <string name="yourExp">M Exp</string>
+    <string name="SelectType">Select Game Type</string>
+    <string name="HighScoreGame">High Score</string>
+    <string name="ScoreBoardGames">Score Board</string>
+    <string name="submitButton">Submit</string>
+    <string name="killsTitle">Kills</string>
+    <string name="deathTitle">Deaths</string>
+    <string name="assistsTitle">Assists</string>
+    <string name="winsTitle">Wins</string>
+    <string name="lostTitle">Lost</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Search by Platforms, Genres</string>
+    <string name="sync_header">Parent Mode</string>
+
+    <string name="filter_title1">Platforms</string>
+    <string name="filter_title2">Genres</string>
+    <string name="parent_title">Parent Mode</string>
+
+    <string name="author">Authors</string>
+    <string name="authorName1">Devika Krishnan</string>
+    <string name="authorName2">Chintan Ramparia</string>
+    <string name="authorName3">Alex Coutinho</string>
+
+    <string name="specialThanks">Special Thanks to</string>
+    <string name="specialName">Cai Filiault</string>
+    <string name="refernces">References</string>
+    <string name="api_ref">https://rawg.io/</string>
+    <string name="api_ref2">All Game data from public api https://rawg.io/apidocs</string>
+
+    <string name="hintTitle_Search">Hint -  Search</string>
+    <string name="hintText_Search">Search for your favorite games by title.\n\nYou can see \"MORE\" information for each and \"SAVE\" them to your collection.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
+    <string name="hintTitle_Upcoming">Hint -  Upcoming</string>
+    <string name="hintText_Upcoming">See the titles that are on the verge of being released.\n\nYou can see "MORE" information for each and "MARK" the release date on your calendar.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
+    <string name="hintTitle_Trending">Hint -  Trending</string>
+    <string name="hintText_Trending">See the titles that are currently on top of the charts.\n\nYou can see "MORE" information for each and "SAVE" them to your collection.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
+    <string name="hintTitle_MoreInfo">Hint -  More Info</string>
+    <string name="hintText_MoreInfo">Scroll through detailed information about the selected game, including screenshots.</string>
+    <string name="hintTitle_Collection">Hint - Collection</string>
+    <string name="hintText_Collection">This is a list of all games you have added to your collection of favorite games.\n\nTap and Hold a game to remove the game from your list.\n\nTap the \"M EXP\" button to enter your stats for your latest playthrough.\n\nTap and hold this button to navigate to the Stats Display Screen.</string>
+    <string name="hintTitle_Stats">Hint - Your Stats</string>
+    <string name="hintText_Stats">See the stats of the games you play.\n\nTap the \"Edit\" button to alter the displayed stats.</string>
+    <string name="hintTitle_StatInput">Hint - Input Stats</string>
+    <string name="hintText_StatInput">Enter your stats for the selected game here.\n\nToggle between a High-Score or Scoreboard-type stats with the button on top.</string>
+    <string name="hintTitle_Settings">Hint - Settings</string>
+    <string name="hintText_Settings">View your \"Personal Details\" from this page.\n\n \"Share\" the app on Social Media via this page.\n\nYou can also see who is credited with the making of this app.</string>
+    <string name="hintTitle_Filter">Hint - Filter menu</string>
+    <string name="hintText_Filter">Filter your searches based on your favorite platform or genre.\n\nOr, limit your searches to family-friendly content with \"Parent Mode\".</string>
+    <string name="hintButton">Okay</string>
+
+    <string name="statsTitle">STATS</string>
+    <string name="editButton">EDIT</string>
+
 </resources>

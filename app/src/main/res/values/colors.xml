@@ -7,4 +7,33 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="Background1">#232C27</color>
+    <color name="Background2">#284854</color>
+    <color name="NavigationColor">#60747C</color>
+    <color name="TextColor">#B8B8AA</color>
+    <color name="IconColor">#D9A774</color>
+
+    <color name="T2Background1">#2A2819</color>
+    <color name="T2Background2">#513F29</color>
+    <color name="T2NavigationColor">#765038</color>
+    <color name="T2TextColor">#CD986C</color>
+    <color name="T2IconColor">#B98671</color>
+
+    <color name="ratingsBackground">#80000000</color>
+    <color name="NameBackground">#20000000</color>
+
+
+    <color name="blue_200">#344955</color>
+    <color name="blue_500">#604A6572</color>
+    <color name="blue_700">#232F34</color>
+    <color name="pink_200">#FEDBD0</color>
+    <color name="pink_700">#442C2E</color>
+<!--    <color name="black">#FF000000</color>-->
+<!--    <color name="white">#FFFFFFFF</color>-->
+    <color name ="grey_primary">#546e7a</color>
+    <color name ="grey_variant">#29434e</color>
+    <color name ="grey_secondary">#90a4ae</color>
+    <color name ="grey_secondary_variant">#62757f</color>
 </resources>
