@@ -12,10 +12,6 @@
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_baseline_search_24"
             android:title="@string/menu_search" />
-        <item
-            android:id="@+id/nav_collections"
-            android:icon="@drawable/ic_baseline_collections_24"
-            android:title="@string/menu_collections" />
 
         <item
             android:id="@+id/nav_upcoming"
@@ -23,4 +19,13 @@
             android:title="@string/menu_upcomingtrending" />
 
     </group>
+
+    <item android:title="My Games">
+            <menu>
+                <item
+                    android:id="@+id/nav_collections"
+                    android:icon="@drawable/ic_baseline_collections_24"
+                    android:title="@string/menu_collections" />
+            </menu>
+    </item>
 </menu>
