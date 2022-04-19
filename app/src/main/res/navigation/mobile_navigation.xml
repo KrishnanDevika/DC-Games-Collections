@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_search">
+    app:startDestination="@id/nav_apphome">
     <fragment
         android:id="@+id/nav_apphome"
         android:name="com.example.dcgamescollection.HomeFragment"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/ask_user_record"
         android:name="com.example.dcgamescollection.AskUserRecord"
-        android:label="fragment_ask_user_record"
+        android:label="Add/Update Stats"
         tools:layout="@layout/fragment_ask_user_record" />
     <fragment
         android:id="@+id/nav_settings"

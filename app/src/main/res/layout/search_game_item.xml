@@ -108,11 +108,11 @@
                 android:layout_width="141dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="3dp"
                 android:text="@string/yourExp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/dateLabel"
                 app:layout_constraintTop_toBottomOf="@+id/gameLabel" />
 
             <ImageView
