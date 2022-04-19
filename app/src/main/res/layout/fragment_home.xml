@@ -31,7 +31,6 @@
         android:background="@color/cardview_shadow_start_color"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/PlayerID"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
