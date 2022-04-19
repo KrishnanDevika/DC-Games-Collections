@@ -71,6 +71,27 @@
     <string name="refernces">References</string>
     <string name="api_ref">https://rawg.io/</string>
     <string name="api_ref2">All Game data from public api https://rawg.io/apidocs</string>
+
+    <string name="hintTitle_Search">Hint -  Search</string>
+    <string name="hintText_Search">Search for your favorite games by title.\n\nYou can see \"MORE\" information for each and \"SAVE\" them to your collection.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
+    <string name="hintTitle_Upcoming">Hint -  Upcoming</string>
+    <string name="hintText_Upcoming">See the titles that are on the verge of being released.\n\nYou can see "MORE" information for each and "MARK" the release date on your calendar.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
+    <string name="hintTitle_Trending">Hint -  Trending</string>
+    <string name="hintText_Trending">See the titles that are currently on top of the charts.\n\nYou can see "MORE" information for each and "SAVE" them to your collection.\n\nYou can also see the game\'s webpage on rawg.io using the Web Button.</string>
+    <string name="hintTitle_MoreInfo">Hint -  More Info</string>
+    <string name="hintText_MoreInfo">Scroll through detailed information about the selected game, including screenshots.</string>
+    <string name="hintTitle_Collection">Hint - Collection</string>
+    <string name="hintText_Collection">This is a list of all games you have added to your collection of favorite games.\n\nTap and Hold a game to remove the game from your list.\n\nTap the \"M EXP\" button to enter your stats for your latest playthrough.\n\nTap and hold this button to navigate to the Stats Display Screen.</string>
+    <string name="hintTitle_Stats">Hint - Your Stats</string>
+    <string name="hintText_Stats">See the stats of the games you play.\n\nTap the \"Edit\" button to alter the displayed stats.</string>
+    <string name="hintTitle_StatInput">Hint - Input Stats</string>
+    <string name="hintText_StatInput">Enter your stats for the selected game here.\n\nToggle between a High-Score or Scoreboard-type stats with the button on top.</string>
+    <string name="hintTitle_Settings">Hint - Settings</string>
+    <string name="hintText_Settings">View your \"Personal Details\" from this page.\n\n \"Share\" the app on Social Media via this page.\n\nYou can also see who is credited with the making of this app.</string>
+    <string name="hintTitle_Filter">Hint - Filter menu</string>
+    <string name="hintText_Filter">Filter your searches based on your favorite platform or genre.\n\nOr, limit your searches to family-friendly content with \"Parent Mode\".</string>
+    <string name="hintButton">Okay</string>
+
     <string name="statsTitle">STATS</string>
     <string name="editButton">EDIT</string>
 
