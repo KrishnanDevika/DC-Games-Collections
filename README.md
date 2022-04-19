@@ -14,9 +14,8 @@ Also provide us with the option to remove the game if don’t want it to be in y
 ### Screenshots
 
 
-
-![navigation](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemFlow1.PNG)
-![navigation](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemflow2.PNG)
+![GamesCollection](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemflow2.png)
+![GamesCollection](https://github.com/KrishnanDevika/DC-Games-Collections/blob/ReadMe/screenshots/systemFlow1.png)
 
 
 
@@ -33,7 +32,8 @@ Games that are in the collections can allow the user to add their achievements a
 ##### Upcoming and Recent release games
 This tab will display list of all upcoming game releases and recently released games.
 ##### Settings
-Setting have the option to Filter the game search based on countries they have selected. Also have Game price currency conversion. Other menus include share option so that this app can be recommended to another user.  Also includes FAQ in the settings.
+Setting have the option to Filter the game search based on platforms and genres. Other menus include share option so that this app can be recommended to another user.
+Also we have shown hints to the user when they click Fab button in each screen.
 
 #### Database:
 One table to store all the games in the collections. Second table contains stats of each game in the collections.
@@ -56,6 +56,8 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
     }
 ##### Dependencies
 *   implementation 'androidx.preference:preference:1.1.1'
+*   implementation 'com.android.volley:volley:1.2.1'
+*   implementation 'com.squareup.picasso:picasso:2.5.2'
 
 
 ### Install and build
@@ -63,6 +65,7 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
 * Clone the repo
 * Open the project in Android Studio
 * Build and run
+* Need API key to fetch games
 
 
 ### Author
@@ -70,7 +73,33 @@ like Score, High Score, Levels completed so far, number of lives, kills etc...,
 | 		Name      |     Account    |      Email         |
 | ---------------- | ------------- | ------------------ |
 | Devika Krishnan | KrishnanDevika |  w0774427@myscc.ca |
-| Chintan Kamelesh Ramparia | CRamparia | CR63@myscc.ca
+| Chintan Kamalesh Ramparia | CRamparia | w0771148@myscc.ca |
+| Alex Justin Coutinho | acoutinho | w0542845@myscc.ca |
+
+
+### License
+
+MIT License
+
+Copyright (c) [2022] [DCGamesCollection]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
 
