@@ -9,7 +9,10 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.dcgamescollection.R;
@@ -68,6 +71,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_settings, container, false);
         ListView settingsList = view.findViewById(R.id.settingsList);
+        LinearLayout layout = view.findViewById(R.id.settingLayout);
 
         ArrayList<SettingsOptions> settingOptions = new ArrayList<>();
         settingOptions.add(new SettingsOptions( R.drawable.ic_baseline_person_24,"Personal Details", "Name, DOB"));
@@ -94,6 +98,8 @@ public class SettingsFragment extends Fragment {
                 }
             }
         });
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_up);
+        layout.startAnimation(animation);
         return  view;
     }
 }

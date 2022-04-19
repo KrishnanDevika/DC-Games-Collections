@@ -4,16 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
     tools:context=".StatsDisplay">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/statsTitle"
         android:textAlignment="center"
-        android:textColor="@color/TextColor"
-        android:text="Stats"
-        android:textSize="40dp"/>
+        android:textSize="@dimen/top_margin"
+        android:textStyle="bold" />
 
 
     <androidx.recyclerview.widget.RecyclerView

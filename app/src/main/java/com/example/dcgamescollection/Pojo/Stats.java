@@ -5,6 +5,14 @@ import android.os.Parcelable;
 
 public class Stats implements Parcelable{
 
+    /**
+     * @author chintan
+     *
+     * @content
+     *
+     * POJO for Stats Database
+     */
+
     private int id;
     private String name;
     private int gameType;

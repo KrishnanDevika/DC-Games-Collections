@@ -91,5 +91,8 @@
     <string name="hintTitle_Filter">Hint - Filter menu</string>
     <string name="hintText_Filter">Filter your searches based on your favorite platform or genre.\n\nOr, limit your searches to family-friendly content with \"Parent Mode\".</string>
     <string name="hintButton">Okay</string>
-    
+
+    <string name="statsTitle">STATS</string>
+    <string name="editButton">EDIT</string>
+
 </resources>
