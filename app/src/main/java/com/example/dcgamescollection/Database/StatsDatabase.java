@@ -24,6 +24,7 @@ public class StatsDatabase extends SQLiteOpenHelper {
     //Database column Names
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_GAME_NAME = "name";
+    public static final String COLUMN_GAME_TYPE = "game_type";
     public static final String COLUMN_HIGH_SCORE = "high_score";
     public static final String COLUMN_PLAYER_KILLS = "kills";
     public static final String COLUMN_PLAYER_DEATHS = "deaths";
@@ -35,6 +36,7 @@ public class StatsDatabase extends SQLiteOpenHelper {
     public static final String CREATE_STATS_TABLE = "CREATE TABLE " +
             TABLE_STATS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
             COLUMN_GAME_NAME        + " TEXT, " +
+            COLUMN_GAME_TYPE        + " INTEGER, " +
             COLUMN_HIGH_SCORE       + " INTEGER, " +
             COLUMN_PLAYER_KILLS     + " INTEGER, " +
             COLUMN_PLAYER_DEATHS    + " INTEGER, " +
@@ -48,6 +50,7 @@ public class StatsDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put(COLUMN_GAME_NAME, stats.getName());
+        values.put(COLUMN_GAME_TYPE, stats.getGameType());
         values.put(COLUMN_HIGH_SCORE, stats.getHigh_score());
         values.put(COLUMN_PLAYER_KILLS, stats.getKills());
         values.put(COLUMN_PLAYER_DEATHS, stats.getDeaths());
@@ -64,7 +67,7 @@ public class StatsDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Stats stats = null;
         Cursor cursor = db.query(TABLE_STATS,
-                new String[]{COLUMN_ID, COLUMN_GAME_NAME, COLUMN_HIGH_SCORE, COLUMN_PLAYER_KILLS,
+                new String[]{COLUMN_ID, COLUMN_GAME_NAME, COLUMN_GAME_TYPE, COLUMN_HIGH_SCORE, COLUMN_PLAYER_KILLS,
                         COLUMN_PLAYER_DEATHS, COLUMN_PLAYER_ASSISTS, COLUMN_ROUND_WIN, COLUMN_ROUND_LOST}, COLUMN_ID + "= ?",
                 new String[]{String.valueOf(id)}, null, null, null);
 
@@ -77,7 +80,8 @@ public class StatsDatabase extends SQLiteOpenHelper {
                     cursor.getInt(4),
                     cursor.getInt(5),
                     cursor.getInt(6),
-                    cursor.getInt(7)
+                    cursor.getInt(7),
+                    cursor.getInt(8)
             );
         }
         db.close();
@@ -98,7 +102,8 @@ public class StatsDatabase extends SQLiteOpenHelper {
                     cursor.getInt(4),
                     cursor.getInt(5),
                     cursor.getInt(6),
-                    cursor.getInt(7)
+                    cursor.getInt(7),
+                    cursor.getInt(8)
             ));
         }
         db.close();
@@ -106,12 +111,28 @@ public class StatsDatabase extends SQLiteOpenHelper {
     }
 
 //Update Stats Query
-//    public int updateStats(Stats stats){
-//        SQLiteDatabase db = getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//
-//        values.put(COLUMN_GAME_NAME, stats.getName());
-//    }
+    public int updateStats(Stats stats){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_GAME_NAME, stats.getName());
+        values.put(COLUMN_GAME_TYPE, stats.getGameType());
+        values.put(COLUMN_HIGH_SCORE, stats.getHigh_score());
+        values.put(COLUMN_PLAYER_KILLS, stats.getKills());
+        values.put(COLUMN_PLAYER_DEATHS, stats.getDeaths());
+        values.put(COLUMN_PLAYER_ASSISTS, stats.getAssists());
+        values.put(COLUMN_ROUND_WIN, stats.getWins());
+        values.put(COLUMN_ROUND_LOST, stats.getLost());
+
+        return db.update(TABLE_STATS, values, COLUMN_ID + "=?", new String[]{String.valueOf(stats.getId())});
+    }
+
+//Delete Stats Query 
+    public void deleteStats(int stats){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_STATS, COLUMN_ID + "=?", new String[]{String.valueOf(stats)});
+        db.close();
+    }
 
     public StatsDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

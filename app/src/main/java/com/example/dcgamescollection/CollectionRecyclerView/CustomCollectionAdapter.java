@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +12,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.dcgamescollection.GamesCollectionDatabase;
+import com.example.dcgamescollection.AskUserRecord;
+import com.example.dcgamescollection.MoreInfoFragment;
 import com.example.dcgamescollection.Pojo.Games;
 import com.example.dcgamescollection.R;
+import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -53,6 +58,16 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
         Picasso.with(context).load(games.getGameIcon()).into(holder.gameImage);
         holder.save.setVisibility(View.INVISIBLE);
         holder.more.setVisibility(View.INVISIBLE);
+        holder.mExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle extra = new Bundle();
+                extra.putParcelable(AskUserRecord.STATS,
+                        gamesList.get(holder.getAdapterPosition()));
+                extra.putInt(AskUserRecord.ACTION_TYPE, AskUserRecord.CREATE);
+                Navigation.findNavController(view).navigate(R.id.ask_user_record, extra);
+            }
+        });
         holder.webImage.setVisibility(View.INVISIBLE);
 
     }
@@ -81,6 +96,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
         protected ImageView gameImage;
         protected Button save;
         protected Button more;
+        protected Button mExp;
         protected  ImageView webImage;
 
         public CustomViewHolder(@NonNull View itemView) {
@@ -91,7 +107,9 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
             this.more = itemView.findViewById(R.id.infoButton);
             this.save = itemView.findViewById(R.id.saveButton);
             this.gameImage = itemView.findViewById(R.id.imageView);
+            this.mExp = itemView.findViewById(R.id.mExpButton);
             this.webImage = itemView.findViewById(R.id.webView);
+
             itemView.setOnLongClickListener(this);
         }
 
@@ -118,6 +136,7 @@ public class CustomCollectionAdapter extends RecyclerView.Adapter<CustomCollecti
                     .setNegativeButton("No", null)
                     .show();
             return false;
+
         }
     }
 }
