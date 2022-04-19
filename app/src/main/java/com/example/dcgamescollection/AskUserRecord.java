@@ -137,46 +137,34 @@ public class AskUserRecord extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (changeView.isChecked()) {
                     HighScoreTitle.setVisibility(View.GONE);
-                    //HighScoreTitle.setHeight(0);
                     InputHighScore.setVisibility(View.GONE);
-                    //InputHighScore.setHeight(0);
 
                     KillsTitle.setVisibility(View.VISIBLE);
-                    //KillsTitle.setHeight(80);
                     InputKills.setVisibility(View.VISIBLE);
-                    //InputKills.setHeight(80);
                     if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
                         InputKills.setText(String.valueOf(stats.getKills()));
                     }
 
                     DeathsTitle.setVisibility(View.VISIBLE);
-                    //DeathsTitle.setHeight(80);
                     InputDeaths.setVisibility(View.VISIBLE);
-                    //InputDeaths.setHeight(80);
                     if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
                         InputDeaths.setText(String.valueOf(stats.getDeaths()));
                     }
 
                     AssistsTitle.setVisibility(View.VISIBLE);
-                    //AssistsTitle.setHeight(80);
                     InputAssists.setVisibility(View.VISIBLE);
-                    //InputAssists.setHeight(80);
                     if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
                         InputAssists.setText(String.valueOf(stats.getAssists()));
                     }
 
                     WinsTitle.setVisibility(View.VISIBLE);
-                    //WinsTitle.setHeight(80);
                     InputWins.setVisibility(View.VISIBLE);
-                    //InputWins.setHeight(80);
                     if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
                         InputWins.setText(String.valueOf(stats.getWins()));
                     }
 
                     LostTitle.setVisibility(View.VISIBLE);
-                    //LostTitle.setHeight(80);
                     InputLost.setVisibility(View.VISIBLE);
-                    //InputLost.setHeight(80);
                     if((stats.getGameType() == 0) && getArguments().getInt(ACTION_TYPE) == 1) {
                         InputLost.setText(String.valueOf(stats.getLost()));
                     }
@@ -186,7 +174,6 @@ public class AskUserRecord extends Fragment {
                         public void onClick(View view) {
 
                             stats.setName(finalGameName);
-                            //stats.setHigh_score(Integer.parseInt(InputHighScore.getText().toString()));
                             stats.setKills(Integer.parseInt(InputKills.getText().toString()));
                             stats.setDeaths(Integer.parseInt(InputDeaths.getText().toString()));
                             stats.setAssists(Integer.parseInt(InputAssists.getText().toString()));
@@ -207,37 +194,25 @@ public class AskUserRecord extends Fragment {
 
                 } else {
                     HighScoreTitle.setVisibility(View.VISIBLE);
-                    //HighScoreTitle.setHeight(80);
                     InputHighScore.setVisibility(View.VISIBLE);
-                    //InputHighScore.setHeight(80);
                     if((stats.getGameType() == 1) && getArguments().getInt(ACTION_TYPE) == 1) {
                         InputHighScore.setText(String.valueOf(stats.getHigh_score()));
                     }
 
                     KillsTitle.setVisibility(View.GONE);
-                    //KillsTitle.setHeight(0);
                     InputKills.setVisibility(View.GONE);
-                    //InputKills.setHeight(0);
 
                     DeathsTitle.setVisibility(View.GONE);
-                    //DeathsTitle.setHeight(0);
                     InputDeaths.setVisibility(View.GONE);
-                    //InputDeaths.setHeight(0);
 
                     AssistsTitle.setVisibility(View.GONE);
-                    //AssistsTitle.setHeight(0);
                     InputAssists.setVisibility(View.GONE);
-                    //InputAssists.setHeight(0);
 
                     WinsTitle.setVisibility(View.GONE);
-                    //WinsTitle.setHeight(0);
                     InputWins.setVisibility(View.GONE);
-                    //InputWins.setHeight(0);
 
                     LostTitle.setVisibility(View.GONE);
-                    //LostTitle.setHeight(0);
                     InputLost.setVisibility(View.GONE);
-                    //InputLost.setHeight(0);
 
                     SubmitButton.setOnClickListener(new View.OnClickListener() {
                         @Override

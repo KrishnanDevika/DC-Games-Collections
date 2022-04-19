@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
     tools:context=".HomeFragment">
 
 
@@ -28,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:background="@color/cardview_shadow_start_color"
+        android:background="@color/blue_500"
         android:ems="10"
         android:inputType="textPersonName"
         android:textAlignment="center"
@@ -58,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:background="@color/cardview_shadow_start_color"
+        android:background="@color/blue_500"
         android:ems="10"
         android:inputType="date"
         android:textAlignment="center"

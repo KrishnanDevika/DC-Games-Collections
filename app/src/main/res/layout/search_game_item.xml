@@ -10,15 +10,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_background_grad"
+        android:background="@color/blue_200"
         app:cardCornerRadius="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/item_background_grad">
-            <!--            android:background="@color/Background2"-->
-
+            android:background="@color/blue_500">
 
             <LinearLayout
                 android:id="@+id/imagelayout"
@@ -50,18 +48,18 @@
                 android:text="@string/RatingsTV"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+
                 app:layout_constraintBottom_toBottomOf="@+id/imagelayout"
                 app:layout_constraintEnd_toEndOf="@+id/imagelayout" />
 
             <TextView
                 android:id="@+id/gameLabel"
-                android:layout_width="400dp"
+                android:layout_width="0dp"
                 android:layout_height="51dp"
                 android:background="@color/NameBackground"
                 android:padding="10dp"
                 android:text="@string/GameName"
                 android:textAlignment="center"
-                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +70,7 @@
                 android:id="@+id/infoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="18dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
                 android:text="@string/moreButtonText"
@@ -85,9 +83,8 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
                 android:layout_marginStart="16dp"
-                android:text="Save"
+                android:text="@string/SaveButtonText"
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
                 app:layout_constraintStart_toEndOf="@+id/infoButton"
                 app:layout_constraintTop_toTopOf="@+id/infoButton" />
@@ -96,11 +93,10 @@
                 android:id="@+id/dateLabel"
                 android:layout_width="84dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/bangers"
                 android:text="@string/ReleaseDateFormat"
                 android:textAlignment="center"
-                android:textColor="@color/TextColor"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/infoButton"
@@ -123,13 +119,11 @@
                 android:id="@+id/webView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/custom_drawable"
                 android:padding="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/saveButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/saveButton"
                 app:layout_constraintTop_toTopOf="@+id/saveButton"
                 app:srcCompat="@drawable/ic_baseline_language_24" />
 

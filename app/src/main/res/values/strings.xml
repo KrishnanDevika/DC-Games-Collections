@@ -71,5 +71,7 @@
     <string name="refernces">References</string>
     <string name="api_ref">https://rawg.io/</string>
     <string name="api_ref2">All Game data from public api https://rawg.io/apidocs</string>
-    
+    <string name="statsTitle">STATS</string>
+    <string name="editButton">EDIT</string>
+
 </resources>
