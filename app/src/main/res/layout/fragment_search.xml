@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".SearchFragment">
 
@@ -13,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/Background2"
+        android:background="@color/grey_secondary_variant"
         android:padding="10dp"
         app:iconifiedByDefault="false"
         app:queryHint="Enter game name" />

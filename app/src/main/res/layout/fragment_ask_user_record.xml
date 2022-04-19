@@ -44,7 +44,6 @@
             android:layout_marginTop="3dp"
             android:layout_marginEnd="3dp"
             android:layout_marginBottom="3dp"
-            android:background="#A64D4D"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,17 +55,20 @@
                 android:id="@+id/highscoreTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="@string/HighScoreGame"
                 android:textAlignment="center"
-                android:textSize="@dimen/formText" />
+                android:textSize="@dimen/formText"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/socreInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#0E0909"
+                android:background="@color/blue_500"
                 android:ems="10"
                 android:inputType="numberDecimal"
+                android:padding="3dp"
                 android:paddingBottom="5dp"
                 android:textAlignment="center"
                 android:textStyle="bold" />
@@ -75,82 +77,122 @@
                 android:id="@+id/killsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="@string/killsTitle"
                 android:textAlignment="center"
-                android:textSize="@dimen/formText" />
+                android:textSize="@dimen/formText"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/killsInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/blue_500"
                 android:ems="10"
                 android:inputType="number"
-                android:textAlignment="center" />
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/deathsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="@string/deathTitle"
                 android:textAlignment="center"
-                android:textSize="@dimen/formText" />
+                android:textSize="@dimen/formText"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/deathInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/blue_500"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/assistsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="@string/assistsTitle"
                 android:textAlignment="center"
-                android:textSize="@dimen/formText" />
+                android:textSize="@dimen/formText"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/assistsInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/blue_500"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/winsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="@string/winsTitle"
                 android:textAlignment="center"
-                android:textSize="@dimen/formText" />
+                android:textSize="@dimen/formText"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/winInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/blue_500"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/lostTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:text="@string/lostTitle"
                 android:textAlignment="center"
-                android:textSize="@dimen/formText" />
+                android:textSize="@dimen/formText"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/lostInputField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/blue_500"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="@string/submitButton" />
 
         </LinearLayout>
